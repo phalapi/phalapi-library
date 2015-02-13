@@ -12,7 +12,12 @@ class PHPRPC_PhalAPi {
         $this->phalapi = $phalapi;
     }
 
-    public function response() {
+    public function response($params = NULL) {
+        $paramsArr = json_decode($params, TRUE);
+        if ($paramsArr !== FALSE) {
+            DI()->request = new PhalApi_Request(array_merge($_GET, $paramsArr));
+        }
+
         $rs = $this->phalapi->response();
 
         return $rs->getResult();
