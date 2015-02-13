@@ -25,7 +25,9 @@ class Wechat_InMessage {
     public function __construct()
     {
         if (!isset($GLOBALS['HTTP_RAW_POST_DATA'])) {
-            throw new Exception('miss HTTP_RAW_POST_DATA');
+            throw new PhalApi_Exception_BadRequest(
+                T('miss HTTP_RAW_POST_DATA')
+            );
         }
 
         //接受并解析微信中心POST发送XML数据
@@ -53,7 +55,9 @@ class Wechat_InMessage {
             return isset($this->postData[$key]) ? $this->postData[$key] : null;
         }
 
-        throw new Exception("Call undefined method WechatInMessage::$method()");;
+        throw new PhalApi_Exception_InternalServerError(
+            T("Call undefined method WechatInMessage::$method()")
+        );
     }
 
     public function getMsgType()

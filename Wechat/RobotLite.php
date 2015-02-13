@@ -2,16 +2,40 @@
 /**
  * 微信机器人轻聊版
  *
- * - 读取配置中注册的插件，依次短路处理
+ * - 读取配置中注册的插件，依次短路处理，./Config/app.php里面需添加以下配置：
+ *
+ *   'plugins' => array(
+ *       Wechat_InMessage::MSG_TYPE_TEXT => array(
+ *           'Plugin_Menu',
+ *       ),
+ *       Wechat_InMessage::MSG_TYPE_IMAGE => array(
+ *       ),
+ *       Wechat_InMessage::MSG_TYPE_VOICE => array(
+ *       ),
+ *       Wechat_InMessage::MSG_TYPE_VIDEO => array(
+ *       ),
+ *       Wechat_InMessage::MSG_TYPE_LOCATION => array(
+ *       ),
+ *       Wechat_InMessage::MSG_TYPE_LINK => array(
+ *       ),
+ *       Wechat_InMessage::MSG_TYPE_EVENT => array(
+ *       ),
+ *       Wechat_InMessage::MSG_TYPE_DEVICE_EVENT => array(
+ *       ),
+ *       Wechat_InMessage::MSG_TYPE_DEVICE_TEXT => array(
+ *       ),
+ *   ),
  *
  * 示例：
  *  
  *  // 微信的验证不是很稳定，建议开启调试模式取消验签
  *  $robot = new Wechat_RobotLite('YourTokenHere...', true);
  *
- *  $robot->response();
+ *  $rs = $robot->response();
  *
- * @author: dogstar <chanzonghuang@gmail.com> 2014-12-29
+ *  echo $rs->output();
+ *
+ * @author dogstar <chanzonghuang@gmail.com> 2015-02-13
  */
 
 class Wechat_RobotLite extends Wechat_Robot {
@@ -21,10 +45,12 @@ class Wechat_RobotLite extends Wechat_Robot {
             $rs = $this->run();
 
             if ($rs === NULL) {
-                throw new PhalApi_Exception_BadRequest('此功能操作正在开发中，敬请期待~~~');
+                throw new PhalApi_Exception_BadRequest(
+                    T('coming soon!')
+                );
             }
 
-            return $rs();
+            return $rs;
         } catch (PhalApi_Exception $ex) {
             $inMessage = new Wechat_InMessage();
             $outMessage = new Wechat_OutMessage_Text();

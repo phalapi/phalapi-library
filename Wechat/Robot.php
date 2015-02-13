@@ -58,7 +58,9 @@ abstract class Wechat_Robot {
     {
         // 未通过消息真假性验证
         if (!$this->debug && (!$this->isValid() || !$this->validateSignature($token))) {
-            throw new Exception('wrong token');
+            throw new PhalApi_Exception_BadRequest(
+                T('wrong token')
+            );
         }
 
         $inMessage = new Wechat_InMessage();
