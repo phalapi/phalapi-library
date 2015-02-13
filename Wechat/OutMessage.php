@@ -21,6 +21,13 @@ abstract class Wechat_OutMessage {
     }
 
     /**
+     * 为PhalApi保持一致的风格，这里添加response别名
+     */
+    public function output() {
+        echo $this->response();
+    }
+
+    /**
      * @param $fromusername
      * @param $tousername
      * @param $funcFlag 默认为0，设为1时星标刚才收到的消息
