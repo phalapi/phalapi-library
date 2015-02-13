@@ -30,11 +30,5 @@ class PHPRPC_ServerLite {
 
         $server->start();
     }
-
-    public function doResponse() {
-        return 'hi';
-        $rs = $this->response();
-        return $rs->output();
-    }
 }
 

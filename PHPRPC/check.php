@@ -21,5 +21,5 @@ $client->setEncryptMode(3);
 $client->setCharset('UTF-8');  
 $client->setTimeout(10);
 
-print_r($client->response(json_encode($params)));
+var_dump($client->response(json_encode($params)));
 
