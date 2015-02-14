@@ -4,27 +4,19 @@
  *
  * - 读取配置中注册的插件，依次短路处理，./Config/app.php里面需添加以下配置：
  *
+ * 'Wechat' => array(
  *   'plugins' => array(
- *       Wechat_InMessage::MSG_TYPE_TEXT => array(
- *           'Plugin_Menu',
- *       ),
- *       Wechat_InMessage::MSG_TYPE_IMAGE => array(
- *       ),
- *       Wechat_InMessage::MSG_TYPE_VOICE => array(
- *       ),
- *       Wechat_InMessage::MSG_TYPE_VIDEO => array(
- *       ),
- *       Wechat_InMessage::MSG_TYPE_LOCATION => array(
- *       ),
- *       Wechat_InMessage::MSG_TYPE_LINK => array(
- *       ),
- *       Wechat_InMessage::MSG_TYPE_EVENT => array(
- *       ),
- *       Wechat_InMessage::MSG_TYPE_DEVICE_EVENT => array(
- *       ),
- *       Wechat_InMessage::MSG_TYPE_DEVICE_TEXT => array(
- *       ),
+ *       Wechat_InMessage::MSG_TYPE_TEXT => array('Plugin_Menu',),
+ *       Wechat_InMessage::MSG_TYPE_IMAGE => array(),
+ *       Wechat_InMessage::MSG_TYPE_VOICE => array(),
+ *       Wechat_InMessage::MSG_TYPE_VIDEO => array(),
+ *       Wechat_InMessage::MSG_TYPE_LOCATION => array(),
+ *       Wechat_InMessage::MSG_TYPE_LINK => array(),
+ *       Wechat_InMessage::MSG_TYPE_EVENT => array(),
+ *       Wechat_InMessage::MSG_TYPE_DEVICE_EVENT => array(),
+ *       Wechat_InMessage::MSG_TYPE_DEVICE_TEXT => array(),
  *   ),
+ * )
  *
  * 示例：
  *  
@@ -114,7 +106,7 @@ class Wechat_Lite extends Wechat_Robot {
 
     protected function handleWhat($msgType, $inMessage, &$outMessage)
     {
-        $plugins = DI()->config->get('app.plugins.' . $msgType);
+        $plugins = DI()->config->get('app.Wechat.plugins.' . $msgType);
 
         if (empty($plugins) || !is_array($plugins)) {
             return;
