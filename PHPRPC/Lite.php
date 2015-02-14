@@ -6,7 +6,7 @@
  *
  * 示例
  *
- *  $server = new PHPRPC_ServerLite();
+ *  $server = new PHPRPC_Lite();
  *  $server->response();
  *
  * @link http://www.phprpc.org/zh_CN/
@@ -15,7 +15,7 @@
 
 require_once dirname(__FILE__) . DIRECTORY_SEPARATOR . 'phprpc' . DIRECTORY_SEPARATOR . 'phprpc_server.php';
 
-class PHPRPC_ServerLite {
+class PHPRPC_Lite {
 
     protected $phalapiProxy;
 
