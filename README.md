@@ -28,7 +28,13 @@
   [更多请点这里查看使用文档](http://git.oschina.net/dogstar/PhalApi/wikis/%5B3.3%5D-%E6%89%A9%E5%B1%95%E7%B1%BB%E5%BA%93%EF%BC%9A%E5%9F%BA%E4%BA%8EPHPMailer%E7%9A%84%E9%82%AE%E4%BB%B6%E5%8F%91%E9%80%81)  
   
     
-###4、七牛云存储接口调用
+###4、优酷开放平台接口调用
+此扩展可用于调用优酷开放平台的接口。
+  
+  [更多请点这里查看使用文档](http://git.oschina.net/dogstar/PhalApi/wikis/%5B3.4%5D-%E6%89%A9%E5%B1%95%E7%B1%BB%E5%BA%93%EF%BC%9A%E4%BC%98%E9%85%B7%E5%BC%80%E6%94%BE%E5%B9%B3%E5%8F%B0%E6%8E%A5%E5%8F%A3%E8%B0%83%E7%94%A8)  
+  
+    
+###5、七牛云存储接口调用
 此扩展可以用于将图片上传到七牛CDN，或者其他七牛接口的调用。  
   
   [更多请点这里查看使用文档](http://git.oschina.net/dogstar/PhalApi/wikis/%5B3.5%5D-%E6%89%A9%E5%B1%95%E7%B1%BB%E5%BA%93%EF%BC%9A%E4%B8%83%E7%89%9B%E4%BA%91%E5%AD%98%E5%82%A8%E6%8E%A5%E5%8F%A3%E8%B0%83%E7%94%A8)
