@@ -1,4 +1,4 @@
-CREATE TABLE `tbl_user_session_0` (
+CREATE TABLE `phalapi_user_session_0` (
       `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
       `user_id` bigint(20) DEFAULT '0' COMMENT '用户id',
       `token` varchar(64) DEFAULT '' COMMENT '登录token',
@@ -10,7 +10,7 @@ CREATE TABLE `tbl_user_session_0` (
       PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-CREATE TABLE `tbl_user_session_1` (
+CREATE TABLE `phalapi_user_session_1` (
       `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
       `user_id` bigint(20) DEFAULT '0' COMMENT '用户id',
       `token` varchar(64) DEFAULT '' COMMENT '登录token',
@@ -22,7 +22,7 @@ CREATE TABLE `tbl_user_session_1` (
       PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-CREATE TABLE `tbl_user_session_2` (
+CREATE TABLE `phalapi_user_session_2` (
       `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
       `user_id` bigint(20) DEFAULT '0' COMMENT '用户id',
       `token` varchar(64) DEFAULT '' COMMENT '登录token',
@@ -34,7 +34,7 @@ CREATE TABLE `tbl_user_session_2` (
       PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-CREATE TABLE `tbl_user_session_3` (
+CREATE TABLE `phalapi_user_session_3` (
       `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
       `user_id` bigint(20) DEFAULT '0' COMMENT '用户id',
       `token` varchar(64) DEFAULT '' COMMENT '登录token',
@@ -46,7 +46,7 @@ CREATE TABLE `tbl_user_session_3` (
       PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-CREATE TABLE `tbl_user_session_4` (
+CREATE TABLE `phalapi_user_session_4` (
       `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
       `user_id` bigint(20) DEFAULT '0' COMMENT '用户id',
       `token` varchar(64) DEFAULT '' COMMENT '登录token',
@@ -58,7 +58,7 @@ CREATE TABLE `tbl_user_session_4` (
       PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-CREATE TABLE `tbl_user_session_5` (
+CREATE TABLE `phalapi_user_session_5` (
       `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
       `user_id` bigint(20) DEFAULT '0' COMMENT '用户id',
       `token` varchar(64) DEFAULT '' COMMENT '登录token',
@@ -70,7 +70,7 @@ CREATE TABLE `tbl_user_session_5` (
       PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-CREATE TABLE `tbl_user_session_6` (
+CREATE TABLE `phalapi_user_session_6` (
       `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
       `user_id` bigint(20) DEFAULT '0' COMMENT '用户id',
       `token` varchar(64) DEFAULT '' COMMENT '登录token',
@@ -82,7 +82,7 @@ CREATE TABLE `tbl_user_session_6` (
       PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-CREATE TABLE `tbl_user_session_7` (
+CREATE TABLE `phalapi_user_session_7` (
       `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
       `user_id` bigint(20) DEFAULT '0' COMMENT '用户id',
       `token` varchar(64) DEFAULT '' COMMENT '登录token',
@@ -94,7 +94,7 @@ CREATE TABLE `tbl_user_session_7` (
       PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-CREATE TABLE `tbl_user_session_8` (
+CREATE TABLE `phalapi_user_session_8` (
       `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
       `user_id` bigint(20) DEFAULT '0' COMMENT '用户id',
       `token` varchar(64) DEFAULT '' COMMENT '登录token',
@@ -106,7 +106,7 @@ CREATE TABLE `tbl_user_session_8` (
       PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-CREATE TABLE `tbl_user_session_9` (
+CREATE TABLE `phalapi_user_session_9` (
       `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
       `user_id` bigint(20) DEFAULT '0' COMMENT '用户id',
       `token` varchar(64) DEFAULT '' COMMENT '登录token',

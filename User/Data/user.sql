@@ -1,4 +1,4 @@
-CREATE TABLE `tbl_user` (
+CREATE TABLE `phalapi_user` (
       `id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'UID',
       `username` varchar(100) NOT NULL DEFAULT '' COMMENT '用户名',
       `nickname` varchar(50) DEFAULT '' COMMENT '昵称',

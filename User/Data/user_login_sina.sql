@@ -1,4 +1,4 @@
-CREATE TABLE `tbl_user_login_sina` (
+CREATE TABLE `phalapi_user_login_sina` (
       `id` bigint(10) NOT NULL AUTO_INCREMENT,
       `sina_openid` varchar(28) DEFAULT '' COMMENT '新浪微博的OPENID',
       `sina_token` varchar(150) DEFAULT '' COMMENT '新浪微博的TOKEN',
