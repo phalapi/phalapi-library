@@ -3,8 +3,10 @@
 return array(
 
     'tables' => array(
-
-        //10
+		
+		//请将以下配置拷贝到 ./Config/dbs.php 文件对应的位置中
+	
+        //10张表，可根据需要，自行调整表前缀、主键名和路由
         'user_session' => array(
             'prefix' => 'phalapi_',
             'key' => 'id',
