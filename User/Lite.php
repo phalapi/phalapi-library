@@ -7,8 +7,6 @@ class User_Lite {
     }
 
     protected function init($debug) {
-        DI()->userNotorm = new PhalApi_DB_NotORM(DI()->config->get('dbs'), $debug);
-
         DI()->loader->addDirs('/Library/User/User');
 
         PhalApi_Translator::addMessage(API_ROOT . '/Library/User');
