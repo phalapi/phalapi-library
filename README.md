@@ -49,6 +49,12 @@
  + 5、展示了如何开发一个项目级的类库、包括数据库配置、翻译等
   
  [更多请点这里查看使用文档](http://git.oschina.net/dogstar/PhalApi/wikis/%5B3.8%5D-%E6%89%A9%E5%B1%95%E7%B1%BB%E5%BA%93%EF%BC%9A%E7%94%A8%E6%88%B7%E3%80%81%E4%BC%9A%E8%AF%9D%E5%92%8C%E7%AC%AC%E4%B8%89%E6%96%B9%E7%99%BB%E5%BD%95%E9%9B%86%E6%88%90)
+###7、swoole支持下的长链接和异步任务实现
+目前，此扩展类库提供了：
+ + 长链接的接口调用
+ + 异步计划任务的调用
+  
+ [更多请点这里查看使用文档](http://git.oschina.net/dogstar/PhalApi/wikis/%5B3.9%5D-%E6%89%A9%E5%B1%95%E7%B1%BB%E5%BA%93%EF%BC%9Aswoole%E6%94%AF%E6%8C%81%E4%B8%8B%E7%9A%84%E9%95%BF%E9%93%BE%E6%8E%A5%E5%92%8C%E5%BC%82%E6%AD%A5%E4%BB%BB%E5%8A%A1%E5%AE%9E%E7%8E%B0)
 
 ##扩展开发指南 - 针对开发者
 为了统一扩展类库的风格、便于用户更容易使用，这里建议：  
