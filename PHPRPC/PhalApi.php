@@ -16,7 +16,9 @@ class PHPRPC_PhalAPi {
         $paramsArr = json_decode($params, TRUE);
         if ($paramsArr !== FALSE) {
             DI()->request = new PhalApi_Request(array_merge($_GET, $paramsArr));
-        }
+        } else {
+			DI()->request = new PhalApi_Request($_GET);
+		}
 
         $rs = $this->phalapi->response();
 
