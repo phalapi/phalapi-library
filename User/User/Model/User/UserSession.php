@@ -56,7 +56,7 @@ class Model_User_UserSession extends PhalApi_Model_NotORM {
             ->where('token = ?', $token)
             ->fetch();
 
-        if ($row) {
+        if (empty($row)) {
             return;
         }
 
