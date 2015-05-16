@@ -1,4 +1,12 @@
 <?php
+/**
+ * 本地调度器 Task_Runner_Local
+ * 
+ * - 本地内部调度
+ * - 不能在Api请求时进行此调度
+ * 
+ * @author dogstar <chanzonghuang@gmail.com> 20150516
+ */
 
 class Task_Runner_Local extends Task_Runner {
 

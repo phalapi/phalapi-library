@@ -1,12 +1,22 @@
 <?php
+/**
+ * 文件MQ
+ *
+ * - 队列存放于本地文件 中，不支持分布式MQ
+ *
+ * @author dogstar <chanzonghuang@gmail.com> 20150516
+ */
 
 class Task_MQ_File implements Task_MQ {
 
     /**
-     * A year
+     * 最大缓存时间，一年
      */
     const MAX_EXPIRE_TIME = 31536000;
 
+    /**
+     * @var PhalApi_Cache_File $fileCache 文件缓存实例
+     */
     protected $fileCache;
 
     public function __construct(PhalApi_Cache_File $fileCache = NULL) {

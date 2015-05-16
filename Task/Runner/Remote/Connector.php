@@ -1,4 +1,9 @@
 <?php
+/**
+ * 远程接口连接器 Task_Runner_Remote_Connector
+ * 
+ * @author dogstar <chanzonghuang@gmail.com> 20150516
+ */
 
 abstract class Task_Runner_Remote_Connector {
 
@@ -18,6 +23,13 @@ abstract class Task_Runner_Remote_Connector {
         $this->moreParams = isset($config['params']) ? $config['params'] : array();
     }
 
+    /**
+     * 接口请求，超时时ret为404
+     * @param string $service MQ中的接口服务名称，如：Default.Index
+     * @param array $params 参数
+     * @param int $timeoutMS 接口超时（单位：毫秒）
+     * @return array
+     */
     public function request($service, $params = array(), $timeoutMs = 3000) {
         $this->url = $this->host . '?service=' . $service;
         $params = array_merge($this->moreParams, $params);

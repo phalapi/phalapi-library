@@ -1,11 +1,27 @@
 <?php
+/**
+ * 远程调度器 Task_Runner_Remote
+ * 
+ * - 通过远程请求接口实现任务调度
+ * 
+ * @author dogstar <chanzonghuang@gmail.com> 20150516
+ */
 
 class Task_Runner_Remote extends Task_Runner {
 
+	/**
+	 * @var Task_Runner_Remote_Connector 远程接口连接器实例
+	 */
     protected $contector;
 
+    /**
+     * @var int $timeoutMS 接口超时（单位：毫秒）
+     */
     protected $timeoutMS;
 
+    /**
+     * @var int 默认最大接口超时
+     */
     const MAX_TIMEOUT_MS = 3000;
 
     public function __construct(Task_MQ $mq, $step = 10, Task_Runner_Remote_Connector $contector = NULL) {
