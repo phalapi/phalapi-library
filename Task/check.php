@@ -1,7 +1,7 @@
 #!/usr/bin/env php
 <?php
-//require_once dirname(__FILE__) . '/../../../../Public/init.php';
-require_once '/home/dogstar/projects/library.phalapi.net/Public/init.php';
+require_once dirname(__FILE__) . '/../../../../Public/init.php';
+//require_once '/home/dogstar/projects/library.phalapi.net/Public/init.php';
 
 DI()->loader->addDirs('Demo');
 
