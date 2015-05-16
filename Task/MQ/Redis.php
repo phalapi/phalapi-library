@@ -34,7 +34,7 @@ class Task_MQ_Redis implements Task_MQ {
         $rs = array();
 
         while($num > 0) {
-            $params = $this->redisCache->lPop($service));
+            $params = $this->redisCache->lPop($service);
 
             if ($params === NULL) {
                 break;
