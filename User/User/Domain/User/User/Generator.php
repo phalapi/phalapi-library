@@ -7,7 +7,7 @@
  * @author Aevit, dogstar
  */
 
-class Domain_User_Generator {
+class Domain_User_User_Generator {
 
     /**
      * 为微信用户生成新用户
@@ -51,7 +51,7 @@ class Domain_User_Generator {
         $newUserInfo['password'] = '******';
         $newUserInfo['reg_time'] = $_SERVER['REQUEST_TIME'];
 
-        $userModel = new Model_User();
+        $userModel = new Model_User_User();
         return $userModel->insert($newUserInfo);
     }
 }
