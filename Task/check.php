@@ -25,7 +25,7 @@ $taskLite = new Task_Lite($mq);
 
 $taskLite->add($service, $params);
 
-$runnter = new Task_Runner_Local($mq);
+$runner = new Task_Runner_Local($mq);
 $rs = $runnter->go($service);
 
 echo "\nDone:\n", json_encode($rs), "\n\n";
