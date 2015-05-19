@@ -7,54 +7,15 @@
  * @author dogstar <chanzonghuang@gmail.com> 20150516
  */
 
-class Task_MQ_DB extends PhalApi_Model_NotORM implements Task_MQ {
-
-    protected function getTableName($id) {
-        $prefix = hexdec(substr(sha1($id), -1)) % 10;
-        return 'task_mq_' . $prefix;
-    }
+class Task_MQ_DB implements Task_MQ {
 
     public function add($service, $params = array()) {
-        $data = array(
-            'service' => $service,
-            'params' => json_encode($params),
-            'create_time' => time(),
-        );
-
-        $id = $this->insert($data, $service);
-
-        return $id > 0 ? TRUE : FALSE;
+        $model = new Model_Task_TaskMq();
+        return $model->add($service, $params);
     }
 
     public function pop($service, $num = 1) {
-        $rows = $this->getORM($service)
-            ->select('id, params')
-            ->where('service', $service)
-            ->order('id ASC')
-            ->limit(0, $num)
-            ->fetchAll();
-
-        if (empty($rows)) {
-            return array();
-        }
-
-        $ids = array();
-        foreach ($rows as $row) {
-            $ids[] = $row['id'];
-        }
-
-        $this->getORM($service)->where('id', $ids)->delete();
-
-        $rs = array();
-        foreach ($rows as $row) {
-            $params = json_decode($row['params'], TRUE);
-            if (!is_array($params)) {
-                $params = array();
-            }
-
-            $rs[] = $params;
-        }
-
-        return $rs;
+        $model = new Model_Task_TaskMq();
+        return $model->pop($service, $num);
     }
 }

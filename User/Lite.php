@@ -7,7 +7,7 @@ class User_Lite {
     }
 
     protected function init($debug) {
-        DI()->loader->addDirs('/Library/User/User');
+        DI()->loader->addDirs('./Library/User/User');
 
         PhalApi_Translator::addMessage(API_ROOT . '/Library/User');
     }

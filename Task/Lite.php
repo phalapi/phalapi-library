@@ -14,6 +14,7 @@ class Task_Lite {
 
     public function __construct(Task_MQ $mq) {
         $this->mq = $mq;
+        DI()->loader->addDirs('./Library/Task/Task');
     }
 
     /**
