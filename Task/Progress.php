@@ -1,16 +1,32 @@
 <?php
+/**
+ * 计划任务进程类
+ * 
+ * @author dogstar <chanzonghuang@gmail.com> 20150520
+ */
 
 class Task_Progress {
 
-    //1 day
+    /**
+     * @var int MAX_LAST_FIRE_TIME_INTERVAL 修复的最大时间间隔
+     */
     const MAX_LAST_FIRE_TIME_INTERVAL = 86400;
 
+    /**
+     * @var Model_Task_TaskProgress 对数据库的操作
+     */
     protected $model;
 
     public function __construct() {
         $this->model = new Model_Task_TaskProgress();
     }
 
+    /**
+     * 进行进程调度
+     * 
+     * - 1、尝试修复异常的任务
+     * - 2、执行全部空闲的任务
+     */
     public function run() {
         $this->tryToResetWrongItems();
 

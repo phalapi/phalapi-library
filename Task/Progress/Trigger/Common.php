@@ -1,4 +1,9 @@
 <?php
+/**
+ * 通用 触发器接口
+ * 
+ * @author dogstar <chanzonghuang@gmail.com> 20150520
+ */
 
 class Task_Progress_Trigger_Common implements Task_Progress_Trigger {
 
