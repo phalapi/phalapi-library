@@ -62,7 +62,7 @@ class User_Lite {
      * - 自动续期
      */
     public static function heatbeat() {
-        self_renewalTo($_SERVER['REQUEST_TIME'] + Domain_User_User_Session::getMaxExpireTime());
+        self::_renewalTo($_SERVER['REQUEST_TIME'] + Domain_User_User_Session::getMaxExpireTime());
     }
 
     /**
