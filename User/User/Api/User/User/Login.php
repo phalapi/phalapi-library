@@ -54,7 +54,7 @@ class Api_User_User_Login extends PhalApi_Api {
             if ($id <= 0) {
                 //异常2：绑定微信失败
                 DI()->logger->error('failed to bind user with weixin', 
-                    array('userid' => $userid, 'openId' => $this->openId));
+                    array('userid' => $userId, 'openId' => $this->openId));
                 throw new PhalApi_Exception_InternalServerError(T('failed to bind user with weixin'));
             }
         } else {
@@ -64,7 +64,7 @@ class Api_User_User_Login extends PhalApi_Api {
         if ($userId <= 0) {
             //异常3：微信用户不存在
             DI()->logger->error('weixin user not found', 
-                array('userid' => $userid, 'openId' => $this->openId));
+                array('userid' => $userId, 'openId' => $this->openId));
             throw new PhalApi_Exception_InternalServerError(T('weixin user not found'));
         }
 
@@ -103,7 +103,7 @@ class Api_User_User_Login extends PhalApi_Api {
             if ($id <= 0) {
                 //异常2：绑定新浪微博失败
                 DI()->logger->error('failed to bind user with sina', 
-                    array('userid' => $userid, 'openId' => $this->openId));
+                    array('userid' => $userId, 'openId' => $this->openId));
                 throw new PhalApi_Exception_InternalServerError(T('failed to bind user with sina'));
             }
         } else {
@@ -113,7 +113,7 @@ class Api_User_User_Login extends PhalApi_Api {
         if ($userId <= 0) {
             //异常3：新浪用户不存在
             DI()->logger->error('sina user not found', 
-                array('userid' => $userid, 'openId' => $this->openId));
+                array('userid' => $userId, 'openId' => $this->openId));
             throw new PhalApi_Exception_InternalServerError(T('sina user not found'));
         }
 
@@ -152,7 +152,7 @@ class Api_User_User_Login extends PhalApi_Api {
             if ($id <= 0) {
                 //异常2：绑定新浪微博失败
                 DI()->logger->error('failed to bind user with qq', 
-                    array('userid' => $userid, 'openId' => $this->openId));
+                    array('userid' => $userId, 'openId' => $this->openId));
                 throw new PhalApi_Exception_InternalServerError(T('failed to bind user with qq'));
             }
         } else {
@@ -162,7 +162,7 @@ class Api_User_User_Login extends PhalApi_Api {
         if ($userId <= 0) {
             //异常3：新浪用户不存在
             DI()->logger->error('qq user not found', 
-                array('userid' => $userid, 'openId' => $this->openId));
+                array('userid' => $userId, 'openId' => $this->openId));
             throw new PhalApi_Exception_InternalServerError(T('qq user not found'));
         }
 
