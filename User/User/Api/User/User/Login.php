@@ -117,7 +117,7 @@ class Api_User_User_Login extends PhalApi_Api {
             throw new PhalApi_Exception_InternalServerError(T('sina user not found'));
         }
 
-        $token = Domain_User_user_Session::generate($userId);
+        $token = Domain_User_User_Session::generate($userId);
 
         $rs['info']['user_id'] = $userId;
         $rs['info']['token'] = $token;
