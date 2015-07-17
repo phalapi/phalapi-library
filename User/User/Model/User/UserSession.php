@@ -21,8 +21,10 @@ class Model_User_UserSession extends PhalApi_Model_NotORM {
     public function getExpiresTime($userId, $token) {
         $mcKey = $this->getExpiresTimeMcKey($userId, $token);
         $expiresTime = NULL;
-        if (isset(DI()->cache)) {
-            $expiresTime = DI()->cache->get($mcKey);
+        $cache = DI()->cache;
+
+        if (isset($cache)) {
+            $expiresTime = $cache->get($mcKey);
         }
 
         if ($expiresTime === NULL) {
@@ -36,8 +38,8 @@ class Model_User_UserSession extends PhalApi_Model_NotORM {
                 $expiresTime = intval($row['expires_time']);
             }
 
-            if (isset(DI()->cache)) {
-                DI()->cache->set($mcKey, $expiresTime, 3600);
+            if (isset($cache)) {
+                $cache->set($mcKey, $expiresTime, 3600);
             }
         }
 
@@ -46,8 +48,10 @@ class Model_User_UserSession extends PhalApi_Model_NotORM {
 
     public function updateExpiresTime($userId, $token, $newExpiresTime) {
         $mcKey = $this->getExpiresTimeMcKey($userId, $token);
-        if (isset(DI()->cache)) {
-            DI()->cache->set($mcKey, $newExpiresTime, 3600);
+        $cache = DI()->cache;
+
+        if (isset($cache)) {
+            $cache->set($mcKey, $newExpiresTime, 3600);
         }
 
         $row = $this->getORM($userId)
