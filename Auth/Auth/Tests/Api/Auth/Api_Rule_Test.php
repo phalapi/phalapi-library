@@ -64,10 +64,10 @@ class PhpUnderControl_ApiAuthRule_Test extends PHPUnit_Framework_TestCase
     /**
      * @group testCreate
      */
-    public function testCreate()
+    public function testAdd()
     {
         //Step 1. 构建请求URL
-        $url = 'service=Auth_Rule.create';
+        $url = 'service=Auth_Rule.add';
         //Step 2. 执行请求
         $rs = PhalApiTestRunner::go($url,array('name'=>'demo_index.index'));
         $this->assertNotEmpty($rs);
@@ -76,10 +76,10 @@ class PhpUnderControl_ApiAuthRule_Test extends PHPUnit_Framework_TestCase
     /**
      * @group testModify
      */
-    public function testModify()
+    public function testEdit()
     {
          //Step 1. 构建请求URL
-        $url = 'service=Auth_Rule.modify';
+        $url = 'service=Auth_Rule.edit';
         //Step 2. 执行请求
         $rs = PhalApiTestRunner::go($url,array('id'=>1,'name'=>'demo_index.index'));
         $this->assertNotEmpty($rs);
@@ -88,10 +88,10 @@ class PhpUnderControl_ApiAuthRule_Test extends PHPUnit_Framework_TestCase
     /**
      * @group testDelete
      */
-    public function testDelete()
+    public function testDel()
     {
         //Step 1. 构建请求URL
-        $url = 'service=Auth_Rule.delete';
+        $url = 'service=Auth_Rule.del';
         //Step 2. 执行请求
         $rs = PhalApiTestRunner::go($url,array('ids'=>1));
         $this->assertNotEmpty($rs);

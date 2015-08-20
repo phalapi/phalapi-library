@@ -91,7 +91,7 @@ class Api_Auth_Rule extends PhalApi_Api
      * @return int code 业务代码：0.操作成功，1.操作失败，2.规则标识重复
      * @return string msg 业务消息
      */
-    public function create()
+    public function add()
     {
         $rs = array('code' => 0, 'msg' => '');
         $r = self::$Domain->addRule($this);
@@ -112,7 +112,7 @@ class Api_Auth_Rule extends PhalApi_Api
      * @return int code 业务代码：0.操作成功，1.操作失败，2.规则重复
      * @return string msg 业务消息
      */
-    public function modify()
+    public function edit()
     {
         $rs = array('code' => 0, 'msg' => '');
         $r = self::$Domain->editRule($this);
@@ -133,7 +133,7 @@ class Api_Auth_Rule extends PhalApi_Api
      * @return int code 业务代码：0.操作成功，1.操作失败
      * @return string msg 业务消息
      */
-    public function delete()
+    public function del()
     {
         $rs = array('code' => 0, 'msg' => '');
         $r = self::$Domain->delRule($this->ids);

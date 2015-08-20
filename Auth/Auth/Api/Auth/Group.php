@@ -91,7 +91,7 @@ class Api_Auth_Group extends PhalApi_Api
      * @return int code 业务代码：0.操作成功，1.操作失败，2.组名重复
      * @return string msg 业务消息
      */
-    public function create()
+    public function add()
     {
         $rs = array('code' => 0, 'msg' => '');
         $r = self::$Domain->addGroup($this);
@@ -111,7 +111,7 @@ class Api_Auth_Group extends PhalApi_Api
      * @return int code 业务代码：0.操作成功，1.操作失败，2.组名重复
      * @return string msg 业务消息
      */
-    public function modify()
+    public function edit()
     {
         $rs = array('code' => 0, 'msg' => '');
         $r = self::$Domain->editGroup($this);
@@ -131,7 +131,7 @@ class Api_Auth_Group extends PhalApi_Api
      * @return int code 业务代码：0.操作成功，1.操作失败
      * @return string msg 业务消息
      */
-    public function delete()
+    public function del()
     {
         $rs = array('code' => 0, 'msg' => '');
         $r = self::$Domain->delGroup($this->ids);
