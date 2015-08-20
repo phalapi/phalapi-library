@@ -89,6 +89,22 @@ class Model_Auth_Rule extends PhalApi_Model_NotORM
         $r = $this->getORM()->select('id')->where('name', $name)->where('id != ?', $id)->fetchOne();
         return !empty($r) ? true : false;
     }
+    
+    public function getRulesInGroups($gids){
+        $rules = $this->getORM()->select('`add_condition`,`name`')
+        ->where(array('id' => $gids, 'status' => 1))
+        ->fetchAll();
+        return $rules;
+    }
+    
+    public function getRulesInGroupsCache($gids) {
+      $rules = DI()->cache->get( 'rulesInGroups'); //缓存读取
+        if ($rules == null) {
+            $rules=self::getRulesInGroups($gids);
+            DI()->cache->set('rulesInGroups', $rules);
+        }
+        return $rules;
+    }
 
 
 }

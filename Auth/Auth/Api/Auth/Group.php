@@ -29,16 +29,16 @@ class Api_Auth_Group extends PhalApi_Api
             'getInfo' => array(
                 'id' => array('name' => 'id', 'type' => 'int', 'require' => true, 'min' => 1, 'desc' => '组id')
             ),
-            'add' => array(
+            'create' => array(
                 'title' => array('name' => 'title', 'type' => 'string', 'require' => true, 'desc' => '组名称'),
                 'status' => array('name' => 'status', 'type' => 'int', 'default' => 1, 'desc' => '状态，1.正常，0.禁用')
             ),
-            'edit' => array(
+            'modify' => array(
                 'id' => array('name' => 'id', 'type' => 'int', 'require' => true, 'min' => 1, 'desc' => '需要修改的组id'),
                 'title' => array('name' => 'title', 'type' => 'string', 'require' => true, 'desc' => '组名称'),
                 'status' => array('name' => 'status', 'type' => 'int', 'title' => '状态，1.正常，0.禁用')
             ),
-            'del' => array(
+            'delete' => array(
                 'ids' => array('name' => 'ids', 'type' => 'string', 'require' => true, 'min' => 1, 'desc' => '组id，逗号隔开多个')
             ),
             'setRules' => array(
@@ -91,7 +91,7 @@ class Api_Auth_Group extends PhalApi_Api
      * @return int code 业务代码：0.操作成功，1.操作失败，2.组名重复
      * @return string msg 业务消息
      */
-    public function add()
+    public function create()
     {
         $rs = array('code' => 0, 'msg' => '');
         $r = self::$Domain->addGroup($this);
@@ -111,7 +111,7 @@ class Api_Auth_Group extends PhalApi_Api
      * @return int code 业务代码：0.操作成功，1.操作失败，2.组名重复
      * @return string msg 业务消息
      */
-    public function edit()
+    public function modify()
     {
         $rs = array('code' => 0, 'msg' => '');
         $r = self::$Domain->editGroup($this);
@@ -131,7 +131,7 @@ class Api_Auth_Group extends PhalApi_Api
      * @return int code 业务代码：0.操作成功，1.操作失败
      * @return string msg 业务消息
      */
-    public function del()
+    public function delete()
     {
         $rs = array('code' => 0, 'msg' => '');
         $r = self::$Domain->delGroup($this->ids);

@@ -64,7 +64,7 @@ class PhpUnderControl_ApiAuthRule_Test extends PHPUnit_Framework_TestCase
     /**
      * @group testCreate
      */
-    public function testAdd()
+    public function testCreate()
     {
         //Step 1. 构建请求URL
         $url = 'service=Auth_Rule.create';
@@ -76,7 +76,7 @@ class PhpUnderControl_ApiAuthRule_Test extends PHPUnit_Framework_TestCase
     /**
      * @group testModify
      */
-    public function testEdit()
+    public function testModify()
     {
          //Step 1. 构建请求URL
         $url = 'service=Auth_Rule.modify';
@@ -88,7 +88,7 @@ class PhpUnderControl_ApiAuthRule_Test extends PHPUnit_Framework_TestCase
     /**
      * @group testDelete
      */
-    public function testDel()
+    public function testDelete()
     {
         //Step 1. 构建请求URL
         $url = 'service=Auth_Rule.delete';

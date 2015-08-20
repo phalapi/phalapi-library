@@ -96,6 +96,28 @@ class Model_Auth_Group extends PhalApi_Model_NotORM
         $r = $this->getORM()->where('id', $id)->update($info);
         return $r === false ? false : true;
     }
+    
+    public function getUserInGroups($uid)
+    {
+            $prefix = DI()->config->get('dbs.tables.__default__.prefix');
+            $sql = 'SELECT g.id, g.rules '
+                . 'FROM ' . $prefix . DI()->config->get('app.auth.auth_group_access') . ' AS a '
+                    . 'JOIN ' . $prefix . DI()->config->get('app.auth.auth_group') . ' AS g '
+                        . 'ON a.group_id = g.id '
+                            . 'where a.uid=:uid and g.status=:status';
+            $params = array(':uid' => $uid, ':status' => 1);
+            $user_groups = DI()->notorm->notTable->queryRows($sql, $params);
+             return $user_groups;
+    }
 
+    public function getUserInGroupsCache($uid)
+    {
+            $user_groups = DI()->cache->get($uid . '_auth_groups'); //读缓存
+            if ($user_groups == null) {
+                $user_groups=self::getUserInGroups($uid);
+                DI()->cache->set($uid . '_auth_groups', $user_groups);
+            }
+        return $user_groups;
+    }
 
 }
