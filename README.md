@@ -74,7 +74,7 @@
  
 [更多请点这里查看使用文档](http://git.oschina.net/dogstar/PhalApi-Library/wikis/Auth-%E6%9D%83%E9%99%90%E6%89%A9%E5%B1%95%E4%BD%BF%E7%94%A8%E6%96%87%E6%A1%A3)
 
-###9、FastRoute快速路由
+###11、FastRoute快速路由
 此扩展基于 ![FastRoute](https://github.com/nikic/FastRoute) 实现，需要 **PHP 5.4.0** 及以上版本，可以通过配置实现自定义路由配置，从而轻松映射到PhalApi中的service接口服务。，主要有：
 
  + 1、基于FastRoute实现
