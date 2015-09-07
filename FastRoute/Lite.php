@@ -40,7 +40,10 @@
  * Step 4. 页面访问测试
 ```
  * http://library.phalapi.com/user/get_base_info/1
+ * 等效于：http://library.phalapi.com/?service=User.GetBaseInfo&user_id=1
+ *
  * http://library.phalapi.com/user/get_multi_base_info/1,2
+ * 等效于：http://library.phalapi.com/?service=User.GetMultiBaseInfo&user_ids=1,2
 ```
  *
  *     
