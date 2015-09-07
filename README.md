@@ -79,8 +79,8 @@
 
  + 1、基于FastRoute实现
  + 2、需要PHP 5.4.0 及以上版本  
- + 通过配置文件来实现自定义路由，并映射到service
- + 可兼容无路由的历史URI
+ + 3、通过配置文件来实现自定义路由，并映射到service
+ + 4、可兼容无路由的历史URI
 
  [更多请点这里查看使用文档](http://git.oschina.net/dogstar/PhalApi/wikis/%5B3.10%5D-%E6%89%A9%E5%B1%95%E7%B1%BB%E5%BA%93%EF%BC%9A%E5%9F%BA%E4%BA%8EFastRoute%E7%9A%84%E5%BF%AB%E9%80%9F%E8%B7%AF%E7%94%B1)
  
