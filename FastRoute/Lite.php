@@ -3,7 +3,7 @@
  * FastRoute_Lite 扩展类库 - 快速路由
  *
  * - 基于FastRoute实现自定义路由
- * - FastRoute需要PHP 5.6 以上版本
+ * - FastRoute需要PHP 5.4.0 以上版本
  * - 支持路由匹配失败时，自定义处理器
  *
  * 示例：
