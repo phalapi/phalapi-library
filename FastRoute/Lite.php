@@ -51,12 +51,12 @@
  * @author dogstar 20150907
  */
 
-require_once dirname(__FILE__) . '/FastRoute/src/functions.php';
+require_once dirname(__FILE__) . implode(DIRECTORY_SEPARATOR, array('', 'FastRoute', 'src', 'functions.php'));
 
 class FastRoute_Lite {
 
     public function __construct() {
-        PhalApi_Translator::addMessage(API_ROOT . '/Library/FastRoute');
+        PhalApi_Translator::addMessage(API_ROOT . DIRECTORY_SEPARATOR . 'Library' . DIRECTORY_SEPARATOR . 'FastRoute');
 
         spl_autoload_register(function($class) {
             if (strpos($class, 'FastRoute\\') === 0) {
