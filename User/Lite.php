@@ -52,8 +52,8 @@ class User_Lite {
     /**
      * 退出登录
      */
-    public static function logout() {
-        self::_renewalTo($_SERVER['REQUEST_TIME']);
+    public function logout() {
+        $this->_renewalTo($_SERVER['REQUEST_TIME']);
     }
 
     /**
@@ -61,8 +61,18 @@ class User_Lite {
      *
      * - 自动续期
      */
-    public static function heatbeat() {
-        self::_renewalTo($_SERVER['REQUEST_TIME'] + Domain_User_User_Session::getMaxExpireTime());
+    public function heatbeat() {
+        $this->_renewalTo($_SERVER['REQUEST_TIME'] + Domain_User_User_Session::getMaxExpireTime());
+    }
+
+    /**
+     * 为用户生成一个会话
+	 * @param int $userId 用户ID
+	 * @param string $client 客户端设备标识，默认为空
+	 * @return string 会话token，返回给客户保存，以便后续请求传递此token作登录态验证
+     */
+    public function generateSession($userId, $client = '') {
+        return Domain_User_User_Session::generate($userId, $client);
     }
 
     /**
@@ -70,7 +80,7 @@ class User_Lite {
      *
      * - 当有效期为当前时间时，即退出
      */
-    protected static function _renewalTo($newExpiresTime) {
+    protected function _renewalTo($newExpiresTime) {
         $userId = DI()->request->get('user_id');
         $token = DI()->request->get('token');
 
