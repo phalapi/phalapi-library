@@ -17,6 +17,10 @@
  *          ),
  *       ),
  *
+ * 需要导入语言文件：https://git.oschina.net/xiaoxunzhao/freeApi/tree/sqldebug/Language?dir=1&filepath=Language&oid=9f95e2e993578ea98cd45d11df2aa8a2c8473926&sha=d6dc0cbd9b4ba6ce8e49bdc93579cdc1d9ab4710
+ *
+ * 需要导入错误码文件：https://git.oschina.net/xiaoxunzhao/freeApi/blob/sqldebug/PhalApi/ReturnCode.php?dir=0&filepath=PhalApi%2FReturnCode.php&oid=081656a55fa056a41b13bb16f342bf3beae6fa4e&sha=d6dc0cbd9b4ba6ce8e49bdc93579cdc1d9ab4710
+ *
  * @author: xiaoxunzhao 2015-10-25
  */
 require_once dirname(__FILE__) . '/Medoo.php';
