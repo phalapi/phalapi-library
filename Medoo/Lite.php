@@ -26,10 +26,13 @@
 require_once dirname(__FILE__) . '/Medoo.php';
 
 class Medoo_Lite {
+    /**
+     * @param $configName string 需要加载的配置文件的文件名称
+     * @throws PhalApi_Exception
+     */
+    public function __construct( $configName ){
 
-   public function __construct(){
-
-       $dbConfig = DI()->config->get('dbs');
+       $dbConfig = DI()->config->get( $configName );
        if( empty($dbConfig) ){
            throw new PhalApi_Exception(
                T('NOT_EXISTS', ['DBConfig']) , ReturnCode::NOT_EXISTS
