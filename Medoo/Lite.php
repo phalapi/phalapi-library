@@ -30,27 +30,27 @@ class Medoo_Lite {
      * @param $configName string 需要加载的配置文件的文件名称
      * @throws PhalApi_Exception
      */
-    public function __construct( $configName ){
-
-       $dbConfig = DI()->config->get( $configName );
-       if( empty($dbConfig) ){
+    public function __construct( $configName = NULL ){
+        $configName = $configName?$configName:"dbs";
+        $dbConfig = DI()->config->get( $configName );
+        if( empty($dbConfig) ){
            throw new PhalApi_Exception(
                T('NOT_EXISTS', ['DBConfig']) , ReturnCode::NOT_EXISTS
            );
        }
-       $tables = $dbConfig['tables'];
+        $tables = $dbConfig['tables'];
 
-       if( empty($tables) ){
+        if( empty($tables) ){
            throw new PhalApi_Exception(
                T('NOT_EXISTS', ['tables']) , ReturnCode::NOT_EXISTS
            );
        }
-       if( empty($dbConfig['servers']) ){
+        if( empty($dbConfig['servers']) ){
            throw new PhalApi_Exception(
                T('NOT_EXISTS', ['servers']) , ReturnCode::NOT_EXISTS
            );
        }
-       foreach( $tables as $key => $value ){
+        foreach( $tables as $key => $value ){
            if( empty($value['map']) ){
                throw new PhalApi_Exception(
                    T('NOT_EXISTS', ['map']) , ReturnCode::NOT_EXISTS
