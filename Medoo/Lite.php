@@ -17,13 +17,10 @@
  *          ),
  *       ),
  *
- * 需要导入语言文件：https://git.oschina.net/xiaoxunzhao/freeApi/tree/sqldebug/Language?dir=1&filepath=Language&oid=9f95e2e993578ea98cd45d11df2aa8a2c8473926&sha=d6dc0cbd9b4ba6ce8e49bdc93579cdc1d9ab4710
- *
- * 需要导入错误码文件：https://git.oschina.net/xiaoxunzhao/freeApi/blob/sqldebug/PhalApi/ReturnCode.php?dir=0&filepath=PhalApi%2FReturnCode.php&oid=081656a55fa056a41b13bb16f342bf3beae6fa4e&sha=d6dc0cbd9b4ba6ce8e49bdc93579cdc1d9ab4710
- *
  * @author: xiaoxunzhao 2015-10-25
  */
 require_once dirname(__FILE__) . '/Medoo.php';
+require_once dirname(__FILE__) . '/ReturnCode.php';
 
 class Medoo_Lite {
     /**
@@ -31,29 +28,32 @@ class Medoo_Lite {
      * @throws PhalApi_Exception
      */
     public function __construct( $configName = NULL ){
+
+        PhalApi_Translator::addMessage(API_ROOT.'/Library/Medoo');
+
         $configName = $configName?$configName:"dbs";
         $dbConfig = DI()->config->get( $configName );
         if( empty($dbConfig) ){
            throw new PhalApi_Exception(
-               T('NOT_EXISTS', ['DBConfig']) , ReturnCode::NOT_EXISTS
+               T('NOT_EXISTS', array('DBConfig')) , ReturnCode::NOT_EXISTS
            );
        }
         $tables = $dbConfig['tables'];
 
         if( empty($tables) ){
            throw new PhalApi_Exception(
-               T('NOT_EXISTS', ['tables']) , ReturnCode::NOT_EXISTS
+               T('NOT_EXISTS', array('tables')) , ReturnCode::NOT_EXISTS
            );
        }
         if( empty($dbConfig['servers']) ){
            throw new PhalApi_Exception(
-               T('NOT_EXISTS', ['servers']) , ReturnCode::NOT_EXISTS
+               T('NOT_EXISTS', array('servers')) , ReturnCode::NOT_EXISTS
            );
        }
         foreach( $tables as $key => $value ){
            if( empty($value['map']) ){
                throw new PhalApi_Exception(
-                   T('NOT_EXISTS', ['map']) , ReturnCode::NOT_EXISTS
+                   T('NOT_EXISTS', array('map')) , ReturnCode::NOT_EXISTS
                );
            }
            if( isset($dbConfig['servers'][$value['map'][0]['db']]) ){
