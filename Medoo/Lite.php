@@ -60,7 +60,7 @@ class Medoo_Lite {
                $className = 'PhalApi_DB_'.strtolower($dbConfig['servers'][$value['map'][0]['db']]['type']);
                $dbConfig['servers'][$value['map'][0]['db']]['type'] = $className;
                if( $key == '__default__' ){
-                   DI()->db = new medoo($dbConfig['servers'][$value['map'][0]['db']]);
+                   DI()->medooLite = new medoo($dbConfig['servers'][$value['map'][0]['db']]);
                }else{
                    DI()->$key = new medoo($dbConfig['servers'][$value['map'][0]['db']]);
                }
