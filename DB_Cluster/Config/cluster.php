@@ -9,12 +9,14 @@ return array(
      * DB数据库服务器集群
      */
     'demo'   => array(
+        //数据库通用属性,如果不通用可以去掉一下属性,在db_list分别配置
         'general'    => array(
             'user'     => 'root',                  //数据库用户名
             'password' => 'woyouxinxi',                        //数据库密码
             'port'     => '3306',                  //数据库端口
             'charset'  => 'UTF8',                  //数据库字符集
         ),
+        //配置数据库集群的地址和数据库名(可以在一台mysql上配置4个数据库模拟集群)
         'db_list'    => array(
             0 => array(
                 'host' => '192.168.0.201',             //数据库域名
@@ -45,13 +47,15 @@ return array(
      * 配置表
      */
     'cluster' => array(
+        //集群分布配置
         'list'    => array(
             'demo'  => array(
+                //使用demo集群配置最大ID和最小ID,最大ID为0等于不上限
                 'id_min' => 0,
                 'id_max' => 0,
             ),
         ),
-        // where查询条件放到衍生表中的字段
+        //where查询条件放到衍生表中的字段
         'where'   => array(
             'city'
         ),

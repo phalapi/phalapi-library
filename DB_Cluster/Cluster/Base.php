@@ -77,7 +77,6 @@ class Cluster_Base{
         $table_count = count($cluster_list['table_list']);
         //取余获得0~15的id 当4库*4表 时
         $id = $id % ($db_count * $table_count);
-
         //除获得0~3的db
         $db = $id / $table_count;
         //取余获得0~3的table

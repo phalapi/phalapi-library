@@ -18,10 +18,10 @@ CREATE TABLE `user_base` (
 
 --库名分表为user_cluster0,user_cluster1,user_cluster2,user_cluster3
 --下面四张表为每一个库中都拥有的4张表(注意ID不能使用自动增长)
---user_0
---user_1
---user_2
---user_3
+--user0
+--user1
+--user2
+--user3
 DROP TABLE IF EXISTS `user0`;
 CREATE TABLE `user0` (
   `uId` int(11) NOT NULL DEFAULT '0',
