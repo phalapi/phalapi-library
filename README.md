@@ -84,6 +84,15 @@
 
  [更多请点这里查看使用文档](http://git.oschina.net/dogstar/PhalApi/wikis/%5B3.11%5D-%E6%89%A9%E5%B1%95%E7%B1%BB%E5%BA%93%EF%BC%9A%E5%9F%BA%E4%BA%8EFastRoute%E7%9A%84%E5%BF%AB%E9%80%9F%E8%B7%AF%E7%94%B1)
  
+###12、基于PhalApi的DB集群拓展DB_Cluster (由@喵了个咪提供)
+为应对海量数据分析与统计，提供针对分表分库统一封装的数据库操作接口，主要用于解决大量数据写入分析的问题。请注意：V0.1bate版本,很多功能尚不完善,只提供技术交流使用,请不要用户生产环境。主要特点有：
+ + 1、适用于大量select和大量的insert的业务场景
+ + 2、基于架构思维的实现
+ + 3、分表分库算法介绍
+ + 4、基准测试对比
+  
+
+ [更多请点这里查看使用文档](http://git.oschina.net/dogstar/PhalApi-Library/tree/master/DB_Cluster/?dir=1&filepath=DB_Cluster&oid=a50865e4e86d8105bdc30c12a8193db1f119cdb5&sha=8c16393c1286f3921cb920dd21a4aab5eb05f8a3)
 
 ##扩展开发指南 - 针对开发者
 为了统一扩展类库的风格、便于用户更容易使用，这里建议：  
