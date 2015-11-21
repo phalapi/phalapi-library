@@ -4,7 +4,7 @@
  * Redis 拓展类
  * @author: 喵了个咪 <wenzhenxi@vip.qq.com> 2015-11-15
  */
-class Redis_Base extends PhalApi_Cache_Redis{
+class Redis_Lite extends PhalApi_Cache_Redis{
 
     private $db_old;
 
@@ -188,7 +188,7 @@ class Redis_Base extends PhalApi_Cache_Redis{
      */
     public function get_blPop($key, $dbname = 0){
         $this->switchDb($dbname);
-        $value = $this->redis->blPop($this->formatKey($key), DI()->config->get('rds.blocking'));
+        $value = $this->redis->blPop($this->formatKey($key), DI()->config->get('app.redis.blocking'));
         return $value != FALSE ? $this->unformatValue($value[1]) : NULL;
     }
 
@@ -197,7 +197,7 @@ class Redis_Base extends PhalApi_Cache_Redis{
      */
     public function get_brPop($key, $dbname = 0){
         $this->switchDb($dbname);
-        $value = $this->redis->brPop($this->formatKey($key), DI()->config->get('rds.blocking'));
+        $value = $this->redis->brPop($this->formatKey($key), DI()->config->get('app.redis.blocking'));
         return $value != FALSE ? $this->unformatValue($value[1]) : NULL;
     }
 
@@ -310,7 +310,7 @@ class Redis_Base extends PhalApi_Cache_Redis{
      */
     public function move($key, $db, $dbname = 0){
         $this->switchDB($dbname);
-        $arr = DI()->config->get('rds.DB');
+        $arr = DI()->config->get('app.redis.DB');
         $rs  = isset($arr[$db]) ? $arr[$db] : $db;
         return $this->redis->move($key, $rs);
     }
@@ -365,15 +365,15 @@ class Redis_Base extends PhalApi_Cache_Redis{
      * 内部切换Redis-DB 如果已经在某个DB上则不再切换
      */
     private function switchDB($name){
-        if($this->db_old != $this->redis){
-            $arr = DI()->config->get('rds.DB');
-            if(is_int($name)){
-                $db = $name;
-            }else{
-                $db = isset($arr[$name]) ? $arr[$name] : $name;
-            }
+        $arr = DI()->config->get('app.redis.DB');
+        if(is_int($name)){
+            $db = $name;
+        }else{
+            $db = isset($arr[$name]) ? $arr[$name] : $name;
+        }
+        if($this->db_old != $db){
             $this->redis->select($db);
-            $this->db_old = $this->redis;
+            $this->db_old = $db;
         }
     }
     //-------------------------------------------------------谨慎使用------------------------------------------------
