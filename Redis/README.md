@@ -99,7 +99,7 @@
     //引入集群拓展拓展库
     DI()->loader->addDirs('Library/Redis');
     //redis链接
-    DI()->redis = new Redis_Lite(DI()->config->get('app.redis_servers'));
+    DI()->redis = new Redis_Lite(DI()->config->get('app.redis.servers'));
 
 ##开始使用##
 
