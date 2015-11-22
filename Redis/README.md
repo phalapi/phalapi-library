@@ -96,8 +96,6 @@
     );
 
 ##在init入口文件注册redis拓展##
-    //引入集群拓展拓展库
-    DI()->loader->addDirs('Library/Redis');
     //redis链接
     DI()->redis = new Redis_Lite(DI()->config->get('app.redis.servers'));
 

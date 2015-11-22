@@ -4,7 +4,7 @@
  * 集群数抽象据类
  * @author: 喵了_个咪 <wenzhenxi@vip.qq.com> 2015-10-21
  */
-abstract class Cluster_DB{
+abstract class DB_Cluster_Cluster_DB{
 
     private $cluster;           //集群类实例
     private $maindb;            //主表实例
@@ -95,7 +95,7 @@ abstract class Cluster_DB{
      */
     public function insert($data){
         $this->getConfing();
-        $Cluster_Base = new Cluster_Base();
+        $Cluster_Base = new DB_Cluster_Cluster_Base();
         $main_data    = $Cluster_Base->mian_Insert_List($this->cluster_config, $data);
         //插入主表
         $rs = $this->maindb->insert($main_data);
@@ -117,7 +117,7 @@ abstract class Cluster_DB{
      * 修改
      */
     public function update($data){
-        $Cluster_Base = new Cluster_Base();
+        $Cluster_Base = new DB_Cluster_Cluster_Base();
         $rs           = $this->fetchAll();
         if(!$rs){
             return 0;
@@ -176,7 +176,7 @@ abstract class Cluster_DB{
      * 查询逻辑
      */
     private function Logical($str){
-        $Cluster_Base = new Cluster_Base();
+        $Cluster_Base = new DB_Cluster_Cluster_Base();
         list($id, $where_index) = $this->parsing();
         //如果说查询条件包括ID
         if($id !== false){
@@ -274,7 +274,7 @@ abstract class Cluster_DB{
      * 通过ID列表查询结果
      */
     private function getIdListByInfo($id, $str){
-        $Cluster_Base = new Cluster_Base();
+        $Cluster_Base = new DB_Cluster_Cluster_Base();
         $idlist       = $Cluster_Base->distr_IdList($this->cluster_list, $this->cluster_config, $this->cluster_dblist, $id);
         $data         = array();
         foreach($idlist as $k => $v){
@@ -299,7 +299,7 @@ abstract class Cluster_DB{
      * 通过ID列表修改集群
      */
     private function setIdListByInfo($id, $dataupdate){
-        $Cluster_Base = new Cluster_Base();
+        $Cluster_Base = new DB_Cluster_Cluster_Base();
         $idlist       = $Cluster_Base->distr_IdList($this->cluster_list, $this->cluster_config, $this->cluster_dblist, $id);
         $data         = null;
         foreach($idlist as $k => $v){
@@ -327,7 +327,7 @@ abstract class Cluster_DB{
      * 通过ID列表删除集群
      */
     private function delIdListByInfo($id){
-        $Cluster_Base = new Cluster_Base();
+        $Cluster_Base = new DB_Cluster_Cluster_Base();
         $idlist       = $Cluster_Base->distr_IdList($this->cluster_list, $this->cluster_config, $this->cluster_dblist, $id);
         $data         = null;
         foreach($idlist as $k => $v){

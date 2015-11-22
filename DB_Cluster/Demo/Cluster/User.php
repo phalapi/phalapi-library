@@ -1,6 +1,6 @@
 <?php
 
-class Cluster_User extends Cluster_DB{
+class Cluster_User extends DB_Cluster_Cluster_DB{
     /**
      * 获取集群实例类
      */

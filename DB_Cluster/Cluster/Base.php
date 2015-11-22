@@ -4,7 +4,7 @@
  * 集群基础类
  * @author: 喵了_个咪 <wenzhenxi@vip.qq.com> 2015-10-21
  */
-class Cluster_Base{
+class DB_Cluster_Cluster_Base{
 
     /**
      * 打印数组或对象

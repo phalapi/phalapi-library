@@ -41,11 +41,8 @@
 
 然后在**init.php**中注册以下两句话
 
-
-	引入集群拓展拓展库
-	DI()->loader->addDirs('Library/DB_Cluster');
 	初始化配置文件
-	DI()->Cluster_DB = new Cluster_Access(DI()->config->get('cluster'));
+	DI()->Cluster_DB = new Cluster_Lite(DI()->config->get('cluster'));
 
 然后把框架自带的Demo文件替换成拓展自带的Demo文件如下就完成了第一步
 

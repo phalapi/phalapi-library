@@ -4,7 +4,7 @@
  * 初始化DB集群拓展
  * @author: 喵了_个咪 <wenzhenxi@vip.qq.com> 2015-10-21
  */
-class Cluster_Access{
+class Cluster_Lite{
     //存放集群文件
     private $cluster_list = array();
     //存放配置文件
