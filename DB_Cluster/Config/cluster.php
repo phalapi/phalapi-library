@@ -9,7 +9,7 @@ return array(
      * DB数据库服务器集群
      */
     'demo'   => array(
-        //数据库通用属性,如果不通用可以去掉一下属性,在db_list分别配置
+        //数据库通用属性,如果不通用可以去掉一些属性,在db_list分别配置
         'general'    => array(
             'user'     => 'root',                  //数据库用户名
             'password' => 'woyouxinxi',                        //数据库密码
