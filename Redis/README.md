@@ -97,7 +97,7 @@
 
 ##在init入口文件注册redis拓展##
     //redis链接
-    DI()->redis = new Redis_Lite(DI()->config->get('app.redis.servers'));
+    DI()->redis = new Library_Redis_Lite(DI()->config->get('app.redis.servers'));
 
 ##开始使用##
 
