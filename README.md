@@ -100,7 +100,7 @@
  + 2、可以用于队列脚本,封装了队列处理
 
 
- [更多请点这里查看使用文档](http://git.oschina.net/dogstar/PhalApi-Library/tree/master/Redis/?dir=1&filepath=Redis&oid=ece23fce437282dfe8326dc7c5b575491f60997f&sha=b54c1b919818b4ca3d70af2ad650db36cd3a8829)
+ [更多请点这里查看使用文档](http://git.oschina.net/dogstar/PhalApi-Library/wikis/%E5%9F%BA%E4%BA%8EPhalApi%E7%9A%84Redis%E6%8B%93%E5%B1%95--%E6%96%87%E6%A1%A3)
 
 ##扩展开发指南 - 针对开发者
 为了统一扩展类库的风格、便于用户更容易使用，这里建议：  
