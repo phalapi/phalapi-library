@@ -4,7 +4,7 @@
  * Redis 拓展类
  * @author: 喵了个咪 <wenzhenxi@vip.qq.com> 2015-11-15
  */
-class Library_Redis_Lite extends PhalApi_Cache_Redis{
+class Redis_Lite extends PhalApi_Cache_Redis{
 
     private $db_old;
 

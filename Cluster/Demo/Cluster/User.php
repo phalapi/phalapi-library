@@ -1,6 +1,9 @@
 <?php
-
-class Cluster_User extends Library_Cluster_Cluster_DB{
+/**
+ * 初始化DB集群拓展 Domen演示层
+ * @author: 喵了_个咪 <wenzhenxi@vip.qq.com> 2015-10-21
+ */
+class Cluster_User extends Cluster_Cluster_DB{
     /**
      * 获取集群实例类
      */

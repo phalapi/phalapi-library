@@ -41,8 +41,10 @@
 
 然后在**init.php**中注册以下两句话
 
+    //注册拓展
+    DI()->loader->addDirs('PhalApi/Library');
     //初始化配置文件
-    DI()->Cluster_DB = new Library_Cluster_Lite(DI()->config->get('cluster'));
+    DI()->Cluster_DB = new Cluster_Lite(DI()->config->get('cluster'));
 
 
 然后把框架自带的Demo文件替换成拓展自带的Demo文件如下就完成了第一步
