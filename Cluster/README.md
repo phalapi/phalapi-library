@@ -41,8 +41,6 @@
 
 然后在**init.php**中注册以下两句话
 
-    //注册拓展
-    DI()->loader->addDirs('PhalApi/Library');
     //初始化配置文件
     DI()->Cluster_DB = new Cluster_Lite(DI()->config->get('cluster'));
 

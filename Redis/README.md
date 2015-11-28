@@ -97,8 +97,6 @@
 
 ##在init入口文件注册redis拓展##
 
-    //注册拓展
-    DI()->loader->addDirs('PhalApi/Library');
     //redis链接
     DI()->redis = new Redis_Lite(DI()->config->get('app.redis.servers'));
 
