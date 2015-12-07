@@ -88,21 +88,6 @@ class Engine_Oss {
     }
 
     /**
-     * 保存指定文件
-     * @param  array   $file    保存的文件信息
-     * @param  boolean $replace 同名文件是否覆盖
-     * @return boolean          保存状态，true-成功，false-失败
-     */
-    public function save2($file, $replace = true) {
-        //打开文件
-        $resource = fopen($file, 'rb');
-        $this->fileType = $resource['type'];
-        $save_file2 = str_ireplace(BASE_UPLOAD_PATH.'/','',$file);
-        $path = $this->rootPath . $save_file2;
-        return $this->request($path, $resource);
-    }
-
-    /**
      * 请求阿里云oss
      * @param  [type] $path     [description]
      * @param  [type] $resource [description]

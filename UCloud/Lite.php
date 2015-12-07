@@ -16,8 +16,6 @@
 class UCloud_Lite {
 
     protected $config = array(
-        //引擎,支持oss,upyun,qcloud
-        'engine' => '',
 
         //上传的API地址,不带http://
         'api' => '',
@@ -49,7 +47,8 @@ class UCloud_Lite {
     public $error = '';
     
     public function __construct() {
-        $this->config = array_merge($this->config, DI()->config->get('app.UCloud'));
+        if(DI()->config->get('app.UCloud'))
+            $this->config = array_merge($this->config, DI()->config->get('app.UCloud'));
     }
 
     /**
@@ -97,7 +96,7 @@ class UCloud_Lite {
 
         //获取上传引擎信息
         DI()->loader->addDirs('Library/UCloud');
-        $engine = 'Engine_' . ucfirst($config['engine']);
+        $engine = 'Engine_' . ucfirst(DI()->config->get('app.UCloudEngine'));
         $upload = new $engine('/',$config);
 
         //设置图片信息

@@ -111,27 +111,6 @@ class Engine_Upyun{
     }
 
     /**
-     * 保存指定文件
-     * @param  array   $file    保存的文件信息
-     * @param  boolean $replace 同名文件是否覆盖
-     * @return boolean          保存状态，true-成功，false-失败
-     */
-    public function save2($file, $replace = true) {
-        $imagesize = getimagesize($file);
-        $header['Content-Type'] = $imagesize['mime'];
-        $header['Content-MD5'] = md5_file($file);
-        $header['Mkdir'] = 'true';
-
-        //打开文件
-        $resource = fopen($file, 'rb');
-        $save_file2 = str_ireplace(BASE_UPLOAD_PATH.'/','',$file);
-        $save = $this->rootPath . $save_file2;
-        $data = $this->request($save, 'PUT', $header, $resource);
-
-        return false === $data ? false : true;
-    }
-
-    /**
      * 获取最后一次上传错误信息
      * @return string 错误信息
      */
