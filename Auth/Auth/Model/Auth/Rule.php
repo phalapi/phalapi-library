@@ -54,7 +54,8 @@ class Model_Auth_Rule extends PhalApi_Model_NotORM
     {
         $rom = $this->getORM();
         $rom->insert($param);
-        return empty($rom->insert_id()) ? false : true;
+        $id = $rom->insert_id();
+        return empty($id) ? false : true;
     }
 
     /**修改规则

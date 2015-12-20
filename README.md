@@ -102,6 +102,21 @@
 
  [更多请点这里查看使用文档](http://git.oschina.net/dogstar/PhalApi-Library/wikis/%E5%9F%BA%E4%BA%8EPhalApi%E7%9A%84Redis%E6%8B%93%E5%B1%95--%E6%96%87%E6%A1%A3)
 
+###14、基于PhalApi的图片上传拓展 (由@Summer提供)
+此扩展可用于图片等文件的上传，使用云上传引擎,并支持local,oss,upyun。
+
+ [更多请点这里查看使用文档](http://git.oschina.net/dogstar/PhalApi-Library/tree/master/UCloud/?dir=1&filepath=UCloud&oid=5e9a5775195dada3443d34c495b6e63681caf557&sha=d4a50a79ed0ed6ac46599ba0e1835679a73ccf58)
+
+
+###15、基于PhalApi的第三方支付拓展 (由@Summer提供)
+目前此扩展支持：
+ + 1、支付宝支付
+ + 2、微信支持
+ + 3、支持第三方支付添加
+
+
+[更多请点这里查看使用文档](http://git.oschina.net/dogstar/PhalApi-Library/tree/master/Pay/?dir=1&filepath=Pay&oid=87c82f473c95070bf36c67a40218e29dd77ff153&sha=d4a50a79ed0ed6ac46599ba0e1835679a73ccf58)
+
 ##扩展开发指南 - 针对开发者
 为了统一扩展类库的风格、便于用户更容易使用，这里建议：  
 
