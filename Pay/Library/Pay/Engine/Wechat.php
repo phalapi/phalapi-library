@@ -50,7 +50,7 @@ class Engine_Wechat extends Pay {
 
 	public function check() {
         if (!$this->config['appid'] || !$this->config['mchid'] || !$this->config['appsecret'] || !$this->config['key']) {
-            DI()->logger->debug('wechat setting error');
+        	DI()->logger->log('payError','wechat setting error');
             return false;
         }
         return true;
@@ -89,12 +89,13 @@ class Engine_Wechat extends Pay {
         $this->values = $this->xmlToArray($response);
 
 		if($this->values['return_code'] != 'SUCCESS'){
-			 return false;
+			DI()->logger->log('payError','支付失败', $this->values);
+			return false;
 		}
 
 		//验证签名
 		if(!$this->checkSign()){
-			DI()->logger->error('签名错误', $this->values);
+			DI()->logger->log('payError','签名错误', $this->values);
 			return false;
 		}
 
@@ -116,12 +117,12 @@ class Engine_Wechat extends Pay {
     	//xml转array
     	$this->values = $this->xmlToArray($notify);
 		if($this->values['return_code'] != 'SUCCESS'){
-			DI()->logger->error('支付失败', $this->values);
+			DI()->logger->log('payError','支付失败', $this->values);
 			return false;
 		}
 
 		if(!$this->checkSign()){
-			DI()->logger->error('签名错误', $this->values);
+			DI()->logger->log('payError','签名错误', $this->values);
 			return false;
 		}
 
@@ -246,6 +247,7 @@ EOT;
 		if(!array_key_exists("appid", $this->values)
 		|| !array_key_exists("prepay_id", $this->values)
 		|| $this->values['prepay_id'] == ""){
+			$this->error = '参数错误';
 			DI()->logger->error('参数错误');
 			return false;
 		}
@@ -474,7 +476,7 @@ EOT;
 			return $data;
 		} else { 
 			$error = curl_errno($ch);
-			echo "curl出错，错误码:$error"."<br>"; 
+			$this->error = 'curl出错，错误码:$error';
 			curl_close($ch);
 			return false;
 		}

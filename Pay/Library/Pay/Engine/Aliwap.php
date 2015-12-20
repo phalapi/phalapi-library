@@ -42,7 +42,7 @@ class Engine_Aliwap extends Pay {
      */
     public function check() {
         if (!$this->config['email'] || !$this->config['key'] || !$this->config['partner']) {
-            DI()->logger->debug('aliwap setting error');
+            DI()->logger->log('payError','aliwap setting error');
             return false;
         }
         return true;

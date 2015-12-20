@@ -30,6 +30,12 @@ class Api_Pay extends PhalApi_Api {
 	public function index(){
 		//获取对应的支付引擎
         DI()->pay->set($this->type);
+
+        //抛出错误
+        if(DI()->pay->getError()){
+            throw new PhalApi_Exception_BadRequest($info, $code);
+        }
+
         $data = array();
         $data['order_no'] = DI()->pay->createOrderNo();
         $data['title'] = '测试的订单';

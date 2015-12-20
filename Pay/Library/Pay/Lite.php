@@ -63,9 +63,8 @@ class Pay_Lite {
         //获取配置
         $config = DI()->config->get('app.Payment.' . $this->engine);
 
-        if(!$config){ 
-          $this->error = '请先配置' . $this->engine . '驱动的相关信息';
-          DI()->logger->debug('No engine config:' . $this->engine);
+        if(!$config){
+          DI()->logger->log('payError','No engine config', $this->engine);
           return false;
         }
 
@@ -77,8 +76,7 @@ class Pay_Lite {
         $engine = 'Engine_' . ucfirst(strtolower($this->engine));
         $this->payer = new $engine($this->config);
         if (!$this->payer) {
-            $this->error = '不存在支付驱动：{$class}';
-            DI()->logger->debug('No driver:{$class}');
+            DI()->logger->log('payError','No engine class', $engine);
             return false;
         }
     }
