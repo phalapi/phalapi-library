@@ -37,7 +37,7 @@ class Api_Notify extends PhalApi_Api {
         
         if(!$notify) {
             DI()->logger->log('payError','Not data commit', array('Type' => $this->type));
-            DI()->base->E('Not data commit');
+            exit; //直接结束程序，不抛出错误
         }
 
         //验证
