@@ -103,14 +103,33 @@ class Api_CDN extends PhalApi_Api {
     const CODE_FAIL_TO_UPLOAD_FILE = 2;
     const CODE_FAIL_TO_UPDATE = 3;
 
+    /**
+     * 获取参数
+     * @return array 参数信息
+     */
+    public function getRules() {
+        return array(
+            'uploadFile' => array(
+                'file' => array(
+                    'name' => 'file', 
+                    'type' => 'file', 
+                    'min' => 0, 
+                    'max' => 1024 * 1024, 
+                    'range' => array('image/jpg', 'image/jpeg', 'image/png'), 
+                    'ext' => array('jpg', 'jpeg', 'png')
+                ),
+            ),
+        );
+    }
+
     public function uploadFile() {
         $rs = array('code' => self::CODE_FAIL_TO_UPLOAD_FILE, 'url' => '', 'msg' => T('fail to upload file'));
 
         //设置上传路径 设置方法参考3.2
-        DI()->ucloud->set('save_path','2015/13/7');
+        DI()->ucloud->set('save_path',date('Y/m/d'));
 
         //上传表单名
-        $res = DI()->ucloud->upfile('file');
+        $res = DI()->ucloud->upfile($this->file);
 
         if ($res) {
             $rs['code'] = 0;
