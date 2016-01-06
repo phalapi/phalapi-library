@@ -74,12 +74,12 @@ class UCloud_Lite {
     /**
      * 上传操作
      *
-     * @param string $field 上传表单名
+     * @param string $field 上传的文件信息
      * @return array or bool
      */
-    public function upfile($field) {  
+    public function upfile($fileData) {  
         //上传文件
-        $this->upload_file = $_FILES[$field];
+        $this->upload_file = $fileData;
         if ($this->upload_file['tmp_name'] == ""){
             $this->setError('File is not empty！');
             return false;
@@ -116,8 +116,10 @@ class UCloud_Lite {
 
             return false;
         } else {
+
             $fileName = $this->setPath() . '/' . $this->file_name;
             $fileUrl = $config['host'] . '/' . $fileName;
+
             DI()->logger->debug('succeed to upload file to '.$engine, $fileUrl);
 
             return array(
