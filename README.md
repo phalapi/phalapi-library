@@ -126,6 +126,13 @@
 
 
 [更多请点这里查看使用文档](http://git.oschina.net/dogstar/PhalApi-Library/tree/master/Image/?dir=1&filepath=Image&oid=1e16d0574361a01179c1d25e9103c21b941d12e3&sha=8110fd16dc78a9267237455d068e1c2edff75369)
+###17、PhalApi-SMS基于PhalApi容联云短信服务器拓展 (由@喵了个咪提供)
+目前此扩展支持：
+ + 1、普通短信发送
+ + 2、语言短信发送
+ + 3、IVR外呼
+
+[更多请点这里查看使用文档](http://git.oschina.net/dogstar/PhalApi-Library/tree/master/SMS/?dir=1&filepath=SMS&oid=4d7320f5e9b7d1ae0f57b2f23dd328ceed55f159&sha=09ce6c0fdf45b71549e60e4a4c858f585104b168)
 
 
 ##扩展开发指南 - 针对开发者
