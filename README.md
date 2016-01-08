@@ -117,6 +117,17 @@
 
 [更多请点这里查看使用文档](http://git.oschina.net/dogstar/PhalApi-Library/tree/master/Pay/?dir=1&filepath=Pay&oid=87c82f473c95070bf36c67a40218e29dd77ff153&sha=d4a50a79ed0ed6ac46599ba0e1835679a73ccf58)
 
+###16、PhalApi-Image -- 图像处理 (由@喵了个咪提供)
+目前此扩展支持：
+ + 1、压缩裁剪
+ + 2、图片水印
+ + 3、获取图片基础信息
+ + 4、GIF图片处理
+
+
+[更多请点这里查看使用文档](http://git.oschina.net/dogstar/PhalApi-Library/tree/master/Image/?dir=1&filepath=Image&oid=1e16d0574361a01179c1d25e9103c21b941d12e3&sha=8110fd16dc78a9267237455d068e1c2edff75369)
+
+
 ##扩展开发指南 - 针对开发者
 为了统一扩展类库的风格、便于用户更容易使用，这里建议：  
 
