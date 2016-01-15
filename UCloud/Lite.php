@@ -91,15 +91,15 @@ class UCloud_Lite {
         $this->ext = strtolower($tmp_ext);
 
         //设置文件名称
-        if(empty($this->file_name)){
+        //if(empty($this->file_name)){
             $this->setFileName();
-        }
+        //}
 
         $config = $this->config;
 
         //获取上传引擎信息
-        DI()->loader->addDirs('Library/UCloud');
-        $engine = 'Engine_' . ucfirst(DI()->config->get('app.UCloudEngine'));
+        //DI()->loader->addDirs('Library/UCloud');
+        $engine = 'UCloud_Engine_' . ucfirst(DI()->config->get('app.UCloudEngine'));
         $upload = new $engine('',$config);
 
         //设置图片信息
@@ -135,9 +135,14 @@ class UCloud_Lite {
      * 生成(从2000-01-01 00:00:00 到现在的秒数+微秒+四位随机)
      */
     private function setFileName(){
-        $tmp_name = sprintf('%010d',time() - 946656000)
-                        . sprintf('%03d', microtime() * 1000)
-                        . sprintf('%04d', mt_rand(0,9999));
+        if(empty($this->file_name)){
+            $tmp_name = sprintf('%010d',time() - 946656000)
+                            . sprintf('%03d', microtime() * 1000)
+                            . sprintf('%04d', mt_rand(0,9999));
+        }else{
+            $tmp_name = $this->file_name;
+        }
+        
         $this->file_name = $tmp_name . '.' . $this->ext;
     }
 
@@ -145,7 +150,10 @@ class UCloud_Lite {
      * 设置文件存储路径
      */
     private function setPath(){
-        return $this->default_path . '/' . $this->save_path;
+        if($this->save_path)
+            return $this->default_path . '/' . $this->save_path;
+        else
+            return $this->default_path;
     }
 
     /**
