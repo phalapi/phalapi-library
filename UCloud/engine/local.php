@@ -6,7 +6,7 @@
  * 
  */
 
-class Engine_Local{
+class UCloud_Engine_Local{
     /**
      * 上传文件根目录
      * @var string

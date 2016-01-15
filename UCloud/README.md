@@ -73,7 +73,7 @@ DI()->ucloud = new UCloud_Lite();
 先简单写个测试文件：
 ```
 <html>
-    <form method="POST" action="./?service=CDN.uploadFile" enctype="multipart/form-data">
+    <form method="POST" action="./?service=Upload.upload" enctype="multipart/form-data">
         <input type="file" name="file">
         <input type="submit">
     </form>
@@ -97,11 +97,7 @@ DI()->ucloud = new UCloud_Lite();
  */
 
 
-class Api_CDN extends PhalApi_Api {
-
-    const CODE_MISS_UPLOAD_FILE = 1;
-    const CODE_FAIL_TO_UPLOAD_FILE = 2;
-    const CODE_FAIL_TO_UPDATE = 3;
+class Api_Upload extends PhalApi_Api {
 
     /**
      * 获取参数
@@ -109,7 +105,7 @@ class Api_CDN extends PhalApi_Api {
      */
     public function getRules() {
         return array(
-            'uploadFile' => array(
+            'upload' => array(
                 'file' => array(
                     'name' => 'file', 
                     'type' => 'file', 
@@ -122,25 +118,26 @@ class Api_CDN extends PhalApi_Api {
         );
     }
 
-    public function uploadFile() {
-        $rs = array('code' => self::CODE_FAIL_TO_UPLOAD_FILE, 'url' => '', 'msg' => T('fail to upload file'));
+    /**
+     * 上传文件
+     * @return string $url 绝对路径
+     * @return string $file 相对路径，用于保存至数据库，按项目情况自己决定吧
+     */
+    public function upload() {
 
         //设置上传路径 设置方法参考3.2
         DI()->ucloud->set('save_path',date('Y/m/d'));
 
+        //新增修改文件名设置上传的文件名称
+        DI()->ucloud->set('file_name', 'avatar');
+
         //上传表单名
         $res = DI()->ucloud->upfile($this->file);
-
-        if ($res) {
-            $rs['code'] = 0;
-            $rs['url'] = $res['url']; //绝对路径
-            $rs['file'] = $res['file']; //相对路径，用于保存至数据库，按项目情况自己决定吧
-            $rs['msg'] = '';
-        }
 
         return $rs;
     }
 }
+?>
 ```
 #### 3.2 设置上传路径
 按照以上设置，将会自动生成4层目录(demo/2015/13/7/aaa.jpg)，demo其实为项目名称，你可以在每个项目入口设置一个常量等于项目名称，然后打开拓展library/UCloud/Lite.php找到$default_path，将该值设置为你设定的常量，或者为空（不是NULL），为空后你可以在设置上传路径里面设置（项目名/2015/12/07）也是可以的!

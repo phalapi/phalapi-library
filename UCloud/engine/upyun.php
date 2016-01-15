@@ -6,7 +6,7 @@
  *
  *
  */
-class Engine_Upyun{
+class UCloud_Engine_Upyun{
     /**
      * 上传文件根目录
      * @var string
