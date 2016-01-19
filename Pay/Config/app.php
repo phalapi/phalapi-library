@@ -8,7 +8,7 @@ return array(
     /**
      * 支付相关配置
      */
-    'Payment' => array(
+    'Pay' => array(
         //异步/同步地址
         'notify_url' => 'http://www.xxx.com/PhalApi/Public/pay/',
 

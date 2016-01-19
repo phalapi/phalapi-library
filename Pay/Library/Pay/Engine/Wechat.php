@@ -1,7 +1,7 @@
 <?php
 /*
  * +----------------------------------------------------------------------
- * | 支付宝引擎
+ * | 微信支付引擎
  * +----------------------------------------------------------------------
  * | Copyright (c) 2015 summer All rights reserved.
  * +----------------------------------------------------------------------
@@ -13,9 +13,7 @@
  * +----------------------------------------------------------------------
  */
 
-include dirname(dirname(__FILE__)) . implode(DIRECTORY_SEPARATOR, array('', 'Pay.php'));
-
-class Engine_Wechat extends Pay {
+class Pay_Engine_Wechat extends Pay_Base {
 
 	protected $snsapi_base_url = 'https://open.weixin.qq.com/connect/oauth2/authorize?';
 	protected $openid_url = 'https://api.weixin.qq.com/sns/oauth2/access_token?';
@@ -110,8 +108,6 @@ class Engine_Wechat extends Pay {
 
     /**
      * 请求验证
-     * @param  [type] $notify [description]
-     * @return [type]         [description]
      */
     public function verifyNotify($notify) {
     	//xml转array
@@ -476,7 +472,7 @@ EOT;
 			return $data;
 		} else { 
 			$error = curl_errno($ch);
-			$this->error = 'curl出错，错误码:$error';
+			DI()->logger->log('payError','curl出错，错误码', $error);
 			curl_close($ch);
 			return false;
 		}
