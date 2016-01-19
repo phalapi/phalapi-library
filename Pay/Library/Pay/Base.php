@@ -1,6 +1,6 @@
 <?php
 
-abstract class Pay {
+abstract class Pay_Base {
 
     protected $config;
     protected $info;

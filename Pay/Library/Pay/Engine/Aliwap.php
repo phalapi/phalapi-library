@@ -13,9 +13,7 @@
  * +----------------------------------------------------------------------
  */
 
-include dirname(dirname(__FILE__)) . implode(DIRECTORY_SEPARATOR, array('', 'Pay.php'));
-
-class Engine_Aliwap extends Pay {
+class Pay_Engine_Aliwap extends Pay_Base {
 
     protected $gateway    = 'https://mapi.alipay.com/gateway.do?';
     protected $verify_url = 'https://mapi.alipay.com/gateway.do?service=notify_verify&';

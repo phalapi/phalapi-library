@@ -4,10 +4,10 @@
 
 #### 1.1 扩展包下载
 从 PhalApi-Library 扩展库中下载获取 Pay 扩展包，如使用：
-
+```
 git clone https://git.oschina.net/dogstar/PhalApi-Library.git
 然后把 Pay 目录下对应的文件移动至对应的目录
-
+```
 #### 1.2 扩展包配置
 我们需要在 ./Config/app.php 配置文件中追加以下配置：
 ##### 1.2.1 第三方支付配置
@@ -15,7 +15,7 @@ git clone https://git.oschina.net/dogstar/PhalApi-Library.git
    /**
      * 支付相关配置
      */
-    'Payment' => array(
+    'Pay' => array(
         //异步/同步地址 如果域名指向到Public，那么地址应该是 http://你的域名/pay/
         'notify_url' => 'http://你的域名/PhalApi/Public/pay/',
 
@@ -50,6 +50,11 @@ git clone https://git.oschina.net/dogstar/PhalApi-Library.git
 支付宝私钥公钥的生成就不多说了，还是自己去看吧!
 任意门：https://cshall.alipay.com/enterprise/help_detail.htm?help_id=483847
 生成后的文件放至Library/Pay/key目录下，文件名请按照对应的文件名设置
+
+```
+alipay_public_key.pem 为支付宝合作伙伴密钥的支付宝公钥
+alipay_rsa_private_key.pem 为自己生成的rsa密钥
+```
 
 ### 2.入门使用
 #### 2.1 入口注册

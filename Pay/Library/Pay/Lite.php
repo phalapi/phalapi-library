@@ -57,11 +57,11 @@ class Pay_Lite {
         $this->engine = strtolower($engine);
         $this->config = array();
 
-        $this->config['notify_url'] = DI()->config->get('app.Payment.notify_url') . $this->engine . '/notify.php';
-        $this->config['return_url'] = DI()->config->get('app.Payment.notify_url') . $this->engine . '/return.php';
+        $this->config['notify_url'] = DI()->config->get('app.Pay.notify_url') . $this->engine . '/notify.php';
+        $this->config['return_url'] = DI()->config->get('app.Pay.notify_url') . $this->engine . '/return.php';
         
         //获取配置
-        $config = DI()->config->get('app.Payment.' . $this->engine);
+        $config = DI()->config->get('app.Pay.' . $this->engine);
 
         if(!$config){
           DI()->logger->log('payError','No engine config', $this->engine);
@@ -72,12 +72,13 @@ class Pay_Lite {
         $this->config = array_merge($this->config, $config);
 
         //设置引擎
-        DI()->loader->addDirs('Library/Pay');
-        $engine = 'Engine_' . ucfirst(strtolower($this->engine));
+        $engine = 'Pay_Engine_' . ucfirst(strtolower($this->engine));
         $this->payer = new $engine($this->config);
         if (!$this->payer) {
             DI()->logger->log('payError','No engine class', $engine);
             return false;
         }
+        
+        return true;
     }
 }
