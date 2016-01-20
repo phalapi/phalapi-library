@@ -107,6 +107,69 @@ class Pay_Engine_Wechat extends Pay_Base {
     }
 
     /**
+     * 现金红包
+     * @link https://pay.weixin.qq.com/wiki/doc/api/cash_coupon.php?chapter=13_5
+     * @author dogstar
+     */
+    public function sendredpack(array $query) {
+        $params['re_openid']    = $query['re_openid'];
+        $params['send_name']    = $query['send_name'];
+        $params['total_amount'] = $query['total_amount'];
+        $params['total_num']    = $query['total_num'];
+        $params['wishing']      = $query['wishing'];
+        $params['act_name']     = $query['act_name'];
+        $params['remark']       = $query['remark'];
+
+        $params['client_ip'] = PhalApi_Tool::getClientIp();
+        if (empty($params['client_ip'])) {
+            $params['client_ip'] = '127.0.0.1';
+            //有些接口需要使用spbill_create_ip传IP 
+        }
+
+        $url = 'https://api.mch.weixin.qq.com/mmpaymkttransfers/sendredpack';
+        return $this->smartPostXmlCurl($url, $params, true);
+    }
+
+    /**
+     * 智能接口请求
+     */
+    protected function smartPostXmlCurl($url, array $params, $useCert = false, $second = 30) {
+        //重置请求参数
+        $this->param = $params;
+
+    	$this->param['wxappid'] = $this->config['appid'];
+        $this->param['mch_id'] = $this->config['mchid'];
+
+        $this->param['nonce_str'] = $this->createNoncestr(32);
+        $this->param['mch_billno'] = $this->config['mchid'] . date('YmdHis') . rand(1000, 9999);
+
+        //获取签名信息
+        ksort($this->param);
+        $this->param['sign'] = $this->getSign($this->param);
+
+        //转换为XML（转换前也需要同步排序，否则签名失败！请留意sign是否必须在最后！@dogstar 20160120）
+        $xml = $this->arrayToXml($this->param);
+
+        DI()->logger->log('payError', '微信接口请求', array('url' => $url, 'params' => $this->param));
+
+        //提交XML信息后，将返回的XML转换成数组
+        $response = $this->postXmlCurl($xml, $url, $useCert, 6);
+        if (empty($response)) {
+            throw new Pay_Exception('微信接口请求异常');
+        }
+
+        $this->values = $this->xmlToArray($response);
+
+        DI()->logger->log('payError','微信接口返回', $this->values);
+
+		if($this->values['return_code'] != 'SUCCESS'){
+            throw new Pay_Exception($this->values['return_msg']);
+		}
+
+        return $this->values;
+    }
+
+    /**
      * 请求验证
      */
     public function verifyNotify($notify) {
@@ -356,7 +419,7 @@ EOT;
 		$buff = "";
 		foreach ($urlObj as $k => $v)
 		{
-			if($k != "sign"){
+			if($k != "sign" && $v !== ''){
 				$buff .= $k . "=" . $v . "&";
 			}
 		}
