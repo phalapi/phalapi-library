@@ -56,6 +56,9 @@ class Medoo_Lite {
                    T('NOT_EXISTS', array('map')) , ReturnCode::NOT_EXISTS
                );
            }
+           if( isset($value['prefix']) && !empty($value['prefix']) ){
+               $dbConfig['servers'][$value['map'][0]['db']]['prefix'] = $value['prefix'];
+           }
            if( isset($dbConfig['servers'][$value['map'][0]['db']]) ){
             //   代码预留，建议不用开启
             //   $className = 'PhalApi_DB_'.strtolower($dbConfig['servers'][$value['map'][0]['db']]['type']);
