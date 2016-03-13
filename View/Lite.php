@@ -26,7 +26,17 @@ class View_Lite {
 	}
 
 	/**
-	 * 渲染模板
+	 * 渲染模板并退出
+	 * @param  string $name  html文件名称
+	 * @param  array  $param 参数
+	 */
+	public function render($name, $param=array()) {
+		$this->show($name, $param);
+		exit();
+	}
+
+	/**
+	 * 渲染模板不退出，可在模板中加载其他模板
 	 * @param  string $name  html文件名称
 	 * @param  array  $param 参数
 	 */
@@ -41,7 +51,7 @@ class View_Lite {
         ob_implicit_flush(false);
 
         //检查文件是否存在
-        file_exists($view) ? require $view : exit($view . ' 模板不存在'); 
+        file_exists($view) ? require $view : exit($view . ' 不存在'); 
 
         //获取当前缓冲区内容 
         $content = ob_get_contents();
