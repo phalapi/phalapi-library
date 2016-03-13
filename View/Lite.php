@@ -26,21 +26,21 @@ class View_Lite {
 	}
 
 	/**
-	 * 渲染模板并退出
+	 * 渲染模板
 	 * @param  string $name  html文件名称
 	 * @param  array  $param 参数
 	 */
-	public function render($name, $param=array()) {
-		$this->show($name, $param);
+	public function show($name, $param=array()) {
+		$this->load($name, $param);
 		exit();
 	}
 
 	/**
-	 * 渲染模板不退出，可在模板中加载其他模板
+	 * 装载模板
 	 * @param  string $name  html文件名称
 	 * @param  array  $param 参数
 	 */
-	public function show($name, $param=array()){  
+	public function load($name, $param=array()){  
         $view = API_ROOT . '/' . $this->item . '/View/' . $this->type . '/' . $name . '.htm';
 
         //将数组键名作为变量名，如果有冲突，则覆盖已有的变量

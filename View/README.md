@@ -63,11 +63,6 @@ class Api_Demo extends PhalApi_Api{
         // 然后把模板文件引入进来，然后将output这个数组放在第二个参数,这里会将数组键名作为变量名，如果有冲突，则覆盖已有的变量
 
         DI->view->show('index', $output);
-        exit(); // 使用show方法渲染模板在最后别忘记添加结束语句
-
-        // 在渲染模板中我们提供了2中渲染方式第一种就是show方法，该方法在渲染后并不会退出，可以在模板中载入模板
-        // 还有一种是渲染后退出的方法 render
-        // DI->view->render('index', $output); // 使用该方法，就不需要在最后添加exit();结束语句了
     }
 }
 ```
@@ -94,7 +89,7 @@ head.htm
 index.htm
 ```
 <!--载入head模板-->
-<?php DI->view->show('head');?>
+<?php DI->view->load('head');?>
 
 <h1>这是一个<?php echo $test?></h1>
 <h2>遍历</h2>
@@ -105,7 +100,7 @@ index.htm
 </ul>
 
 <!--载入foot模板-->
-<?php DI->view->show('foot');?>
+<?php DI->view->load('foot');?>
 ```
 
 foot.htm
