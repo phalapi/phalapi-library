@@ -72,7 +72,7 @@ class Api_Demo extends PhalApi_Api{
 
 比如我们有3个文件 index.html,head.htm,foot.htm
 
-```head.htm```
+head.htm
 ```
 <!DOCTYPE html>
 <html>
@@ -89,7 +89,7 @@ class Api_Demo extends PhalApi_Api{
 <body>
 ```
 
-```index.htm```
+index.htm
 ```
 <!--载入head模板-->
 <?php DI()->view->load('head');?>
@@ -106,7 +106,7 @@ class Api_Demo extends PhalApi_Api{
 <?php DI()->view->load('foot');?>
 ```
 
-```foot.htm```
+foot.htm
 ```
 </body>
 </html>
