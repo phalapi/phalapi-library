@@ -16,25 +16,25 @@ cp ./PhalApi-Library/View/ ./PhalApi/Library/ -R
 ### 2.入门使用
 #### 2.1 入口注册
 ```
-//此处的路口注册不是在init.php中注册，而是在每个项目的index.php中注册
+//此处的入口注册不是在init.php中注册，而是在每个项目的index.php中注册
 
 //系统自带的代码
 DI()->loader->addDirs('Demo');
 
 //其他代码...
 
-//视图控制器 需要预设2个参数，第一个为该项目名称，第二个为视图类型
+//视图控制器 需要预设2个参数，第一个参数为该项目名称，第二个参数为视图类型(也就是你有多套模板使用哪一套)
 DI()->view = new View_Lite('Demo', 'Default');
 ```
 
 ### 3.目录的配置方式
 ***举个栗子：***
-***比如你的项目为```Demo```你需要在Demo项目下新建目录```View/Default```这里就是你以后存放HTML模板的地方了***
-***需要用到JS CSS怎么办？***
-***你可以在```Public/demo/```下新建目录```view/default/css```或者```view/default/js```这2个目录下就可以存放JS或者CSS了***
+比如你的项目为```Demo```你需要在Demo项目下新建目录```View/Default```这里就是你以后存放HTML模板的地方了  
+需要用到JS CSS怎么办？  
+你可以在```Public/demo/```下新建目录```view/default/css```或者```view/default/js```这2个目录下就可以存放JS或者CSS了  
 
 ### 4.模板的使用方法
-***这个视图机制其实是最简单的方式，在做接口时，视同用的也不是很多，但是也会用到，所以我们没有必要去弄一些很复杂的视图模块来做这快。***
+这个视图机制其实是最简单的方式，在做接口时，视图用的也不是很多，但是也会用到，所以我们没有必要去弄一些很复杂的视图模块来做这快。  
 在模板中我们还是使用最原始的PHP代码来写。
 
 1、在接口中载入视图并使用
@@ -62,7 +62,7 @@ class Api_Demo extends PhalApi_Api{
         // 我们现在需要做的事情是在模板中使用，我们先需要在Demo/View/Default中新建一个index.htm的文件
         // 然后把模板文件引入进来，然后将output这个数组放在第二个参数,这里会将数组键名作为变量名，如果有冲突，则覆盖已有的变量
 
-        DI->view->show('index', $output);
+        DI()->view->show('index', $output);
     }
 }
 ```
@@ -89,7 +89,7 @@ head.htm
 index.htm
 ```
 <!--载入head模板-->
-<?php DI->view->load('head');?>
+<?php DI()->view->load('head');?>
 
 <h1>这是一个<?php echo $test?></h1>
 <h2>遍历</h2>
@@ -100,7 +100,7 @@ index.htm
 </ul>
 
 <!--载入foot模板-->
-<?php DI->view->load('foot');?>
+<?php DI()->view->load('foot');?>
 ```
 
 foot.htm
