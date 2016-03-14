@@ -28,16 +28,18 @@ DI()->view = new View_Lite('Demo', 'Default');
 ```
 
 ### 3.目录的配置方式
-***举个栗子：***
+***举个栗子：***  
 比如你的项目为```Demo```你需要在Demo项目下新建目录```View/Default```这里就是你以后存放HTML模板的地方了  
+
 需要用到JS CSS怎么办？  
+
 你可以在```Public/demo/```下新建目录```view/default/css```或者```view/default/js```这2个目录下就可以存放JS或者CSS了  
 
 ### 4.模板的使用方法
 这个视图机制其实是最简单的方式，在做接口时，视图用的也不是很多，但是也会用到，所以我们没有必要去弄一些很复杂的视图模块来做这快。  
 在模板中我们还是使用最原始的PHP代码来写。
 
-1、在接口中载入视图并使用
+4.1、在接口中载入视图并使用
 ```
 //比如一个方法 Demo.php
 class Api_Demo extends PhalApi_Api{
@@ -66,10 +68,11 @@ class Api_Demo extends PhalApi_Api{
     }
 }
 ```
-***这样在接口里面就已经写完了，接下来我们需要在模板中使用***
+这样在接口里面就已经写完了，接下来我们需要在模板中使用  
+
 比如我们有3个文件 index.html,head.htm,foot.htm
 
-head.htm
+```head.htm```
 ```
 <!DOCTYPE html>
 <html>
@@ -86,7 +89,7 @@ head.htm
 <body>
 ```
 
-index.htm
+```index.htm```
 ```
 <!--载入head模板-->
 <?php DI()->view->load('head');?>
@@ -103,7 +106,7 @@ index.htm
 <?php DI()->view->load('foot');?>
 ```
 
-foot.htm
+```foot.htm```
 ```
 </body>
 </html>
