@@ -57,13 +57,17 @@ class Medoo_Lite {
                );
            }
            if( isset($dbConfig['servers'][$value['map'][0]['db']]) ){
-               $className = 'PhalApi_DB_'.strtolower($dbConfig['servers'][$value['map'][0]['db']]['type']);
-               $dbConfig['servers'][$value['map'][0]['db']]['type'] = $className;
-               if( $key == '__default__' ){
+            //   代码预留，建议不用开启
+            //   $className = 'PhalApi_DB_'.strtolower($dbConfig['servers'][$value['map'][0]['db']]['type']);
+            //   $dbConfig['servers'][$value['map'][0]['db']]['type'] = $className;
+                if( isset($value['prefix']) && !empty($value['prefix']) ){
+                    $dbConfig['servers'][$value['map'][0]['db']]['prefix'] = $value['prefix'];
+                }
+                if( $key == '__default__' ){
                    DI()->medooLite = new medoo($dbConfig['servers'][$value['map'][0]['db']]);
-               }else{
+                }else{
                    DI()->$key = new medoo($dbConfig['servers'][$value['map'][0]['db']]);
-               }
+                }
            }
 
        }
