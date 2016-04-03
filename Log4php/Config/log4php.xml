@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<log4php:configuration xmlns:log4php="http://logging.apache.org/log4php/" threshold="all">    
+    <appender name="default" class="LoggerAppenderFile">
+        <param name="file" value="/tmp/myLog.log" /> <!-- 请修改日志文件路径 -->
+        <layout class="LoggerLayoutPattern">
+            <param name="conversionPattern" value="%date{Y-m-d H:i:s}|%level|%message%newline" />
+        </layout>
+    </appender>
+
+    <root>
+        <level value="TRACE" /> <!-- 请修改日志级别：TRACE < DEBUG < INFO < WARN < ERROR < FATAL -->
+        <appender_ref ref="default" />
+    </root>
+</log4php:configuration>

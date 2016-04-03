@@ -25,7 +25,7 @@ class Log4php_Lite extends PhalApi_Logger {
     }
 
     public function log($type, $msg, $data) {
-        if (!in_array(strtolower($type), array('trace', 'debug', 'info', 'warm', 'error', 'fatal'))) {
+        if (!in_array(strtolower($type), array('trace', 'debug', 'info', 'warn', 'error', 'fatal'))) {
             throw new PhalApi_Exception_InternalServerError(T('no log4php level as {type}', array('type' => $type)));
         }
 
@@ -37,8 +37,8 @@ class Log4php_Lite extends PhalApi_Logger {
         $this->log('trace', $msg, $data);
     }
 
-    public function warm($msg, $data = NULL) {
-        $this->log('warm', $msg, $data);
+    public function warn($msg, $data = NULL) {
+        $this->log('warn', $msg, $data);
     }
 
     public function fatal($msg, $data = NULL) {
