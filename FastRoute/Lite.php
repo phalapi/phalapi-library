@@ -33,7 +33,7 @@
  * Step 3. index.php入口文件扩展调用
 ``` 
  * DI()->fastRoute = new FastRoute_Lite();
- * DI()->fastRoute->dispatche();
+ * DI()->fastRoute->dispatch();
  *
 ```
  *
@@ -74,7 +74,7 @@ class FastRoute_Lite {
      * @param FastRoute_Handler $errorHandler 对失败/异常的处理回调
      * @return null
      */   
-    public function dispatche(FastRoute_Handler $errorHandler = null) {
+    public function dispatch(FastRoute_Handler $errorHandler = null) {
         if ($errorHandler === null) {
             $errorHandler = new FastRoute_Handler_Error();
         }
