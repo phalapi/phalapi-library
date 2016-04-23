@@ -61,7 +61,7 @@ class User_Lite {
      *
      * - 自动续期
      */
-    public function heatbeat() {
+    public function heartbeat() {
         $this->_renewalTo($_SERVER['REQUEST_TIME'] + Domain_User_User_Session::getMaxExpireTime());
     }
 
