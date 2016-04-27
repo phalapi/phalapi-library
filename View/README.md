@@ -62,9 +62,16 @@ class Api_Demo extends PhalApi_Api{
         );
 
         // 我们现在需要做的事情是在模板中使用，我们先需要在Demo/View/Default中新建一个index.htm的文件
-        // 然后把模板文件引入进来，然后将output这个数组放在第二个参数,这里会将数组键名作为变量名，如果有冲突，则覆盖已有的变量
 
-        DI()->view->show('index', $output);
+        //抛出变量
+        DI()->view->assign($ouput);
+
+        //抛出多个变量
+        $output_two = '第二个变量';
+        DI()->view->assign(array('two' => $output_two));
+
+        //引入模板
+        DI()->view->show('index');
     }
 }
 ```
