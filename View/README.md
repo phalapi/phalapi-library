@@ -64,7 +64,7 @@ class Api_Demo extends PhalApi_Api{
         // 我们现在需要做的事情是在模板中使用，我们先需要在Demo/View/Default中新建一个index.htm的文件
 
         //抛出变量
-        DI()->view->assign($ouput);
+        DI()->view->assign($output);
 
         //抛出多个变量
         $output_two = '第二个变量';
