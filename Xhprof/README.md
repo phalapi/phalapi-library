@@ -56,6 +56,7 @@
     
     
 在尾部加上:
+
     if (!empty($_GET['__debug__'])) {
     
         $data = xhprof_disable();
