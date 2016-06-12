@@ -33,6 +33,7 @@
     需要在php.ini中配置好
     
 [xhprof]
+
     extension=xhprof.so;
     ; directory used by default implementation of the iXHProfRuns
     ; interface (namely, the XHProfRuns_Default class) for storing
