@@ -57,19 +57,15 @@ class PHPExcel_Lite {
         //循环获取表中的数据，$currentRow表示当前行，从哪行开始读取数据，索引值从0开始
         $title = array();
         if ($firstRowTitle) {
-
-            $StartRow = $firstRowTitle + 1;
             for ($currentColumn = 'A'; $currentColumn <= $allColumn; $currentColumn++) {
                 //数据坐标
-                $address = $currentColumn . 1;
+                $address = $currentColumn . $firstRowTitle;
                 //读取到的数据，保存到数组$arr中
                 $title[$currentColumn] = $currentSheet->getCell($address)->getValue();
             }
-        } else {
-            $StartRow = $firstRowTitle;
         }
 
-        for ($currentRow = $StartRow; $currentRow <= $allRow; $currentRow++) {
+        for ($currentRow = $firstRowTitle + 1; $currentRow <= $allRow; $currentRow++) {
             //从哪列开始，A表示第一列
             for ($currentColumn = 'A'; $currentColumn <= $allColumn; $currentColumn++) {
                 //数据坐标
