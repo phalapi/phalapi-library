@@ -102,13 +102,13 @@
 
  [更多请点这里查看使用文档](http://git.oschina.net/dogstar/PhalApi-Library/wikis/%E5%9F%BA%E4%BA%8EPhalApi%E7%9A%84Redis%E6%8B%93%E5%B1%95--%E6%96%87%E6%A1%A3)
 
-###14、基于PhalApi的图片上传拓展 (由@Summer提供)
+###14、基于PhalApi的图片上传拓展 (由@SteveAK提供)
 此扩展可用于图片等文件的上传，使用云上传引擎,并支持local,oss,upyun。
 
  [更多请点这里查看使用文档](http://git.oschina.net/dogstar/PhalApi-Library/tree/master/UCloud/?dir=1&filepath=UCloud&oid=5e9a5775195dada3443d34c495b6e63681caf557&sha=d4a50a79ed0ed6ac46599ba0e1835679a73ccf58)
 
 
-###15、基于PhalApi的第三方支付拓展 (由@Summer提供)
+###15、基于PhalApi的第三方支付拓展 (由@SteveAK提供)
 目前此扩展支持：
  + 1、支付宝支付
  + 2、微信支持
@@ -124,13 +124,17 @@
  + 3、获取图片基础信息
  + 4、GIF图片处理
 
-
 [更多请点这里查看使用文档](http://git.oschina.net/dogstar/PhalApi-Library/tree/master/Image/?dir=1&filepath=Image&oid=1e16d0574361a01179c1d25e9103c21b941d12e3&sha=8110fd16dc78a9267237455d068e1c2edff75369)
 ###17、PhalApi-SMS基于PhalApi容联云短信服务器拓展 (由@喵了个咪提供)
 目前此扩展支持：
  + 1、普通短信发送
  + 2、语言短信发送
  + 3、IVR外呼
+
+ ###18、PhalApi-ThirdLogin -- 第三方登录 (由@SteveAK提供)
+ 目前此拓展支持：
+ + 1、QQ登录
+ + 2、支持第三方登录添加
 
 [更多请点这里查看使用文档](http://git.oschina.net/dogstar/PhalApi-Library/tree/master/SMS/?dir=1&filepath=SMS&oid=4d7320f5e9b7d1ae0f57b2f23dd328ceed55f159&sha=09ce6c0fdf45b71549e60e4a4c858f585104b168)
 
