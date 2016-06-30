@@ -114,7 +114,7 @@ class PHPExcel_Lite {
             foreach ($rows as $keyName => $value) {// 列写入
                 $j = chr($span);
                 $objActSheet->setCellValue($j . $column, $value);
-				$objActSheet->getColumnDimension($j . $column)->setAutoSize(true);
+				$objActSheet->getColumnDimension($j)->setAutoSize(true);
                 $span++;
             }
             $column++;
