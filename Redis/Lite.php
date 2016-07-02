@@ -369,7 +369,7 @@ class Redis_Lite extends PhalApi_Cache_Redis{
         if(is_int($name)){
             $db = $name;
         }else{
-            $db = isset($arr[$name]) ? $arr[$name] : $name;
+            $db = isset($arr[$name]) ? $arr[$name] : 0;
         }
         if($this->db_old != $db){
             $this->redis->select($db);

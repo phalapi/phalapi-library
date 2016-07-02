@@ -108,7 +108,7 @@
     DI()->redis->get_forever(键名, 库名);
     
     //存入一个有时效性的键值队,默认600秒
-    DI()->redis->set_Time(键名,值, 库名,有效时间);
+    DI()->redis->set_Time(键名,值,有效时间,库名);
     //获取一个有时效性的键值队
     DI()->redis->get_Time(键名, 库名);
     
