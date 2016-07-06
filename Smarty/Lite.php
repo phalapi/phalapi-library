@@ -55,9 +55,18 @@ class Smarty_Lite extends Smarty {
             list($apiClassName, $action) = explode('.', $Api);
 
             if ($apiClassName != "" && $action != "" && ($apiClassName != $this->apiClassName || $action != $this->action)) {
-                $api          = PhalApi_ApiFactory::generateService();
+                $Class = 'Api_' . ucfirst($apiClassName);
+                $apiClass = new $Class();
                 $this->action = $action;
-                call_user_func(array($api, $action));
+                $this->apiClassName = $apiClassName;
+
+                //重新定义目录
+                if($this->p_type != $apiClassName){
+                    $this->p_type = $apiClassName;
+                    $dir = array(API_ROOT."/$this->p_dir/$this->p_type/");
+                    $this->setTemplateDir($dir);
+                }
+                call_user_func(array($apiClass, $action));
             }
         }
 
