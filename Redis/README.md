@@ -97,6 +97,8 @@
 
 ##在init入口文件注册redis拓展##
 
+配置方式非常简单只需要把拓展下载下来放入Library文件内即可,然后就可以使用如下方法进行实例
+
     //redis链接
     DI()->redis = new Redis_Lite(DI()->config->get('app.redis.servers'));
 
