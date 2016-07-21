@@ -29,8 +29,8 @@ class Smarty_Lite extends Smarty {
         if (!empty($templateDir)) {
             $this->p_dir = $templateDir;
         }
-        if (!empty($apiClassName)) {
-            $this->p_type = $apiClassName;
+        if (!empty($this->apiClassName)) {
+            $this->p_type = $this->apiClassName;
         }
         $dir = array(API_ROOT."/$this->p_dir/$this->p_type/");
         $this->setTemplateDir($dir);
@@ -69,7 +69,6 @@ class Smarty_Lite extends Smarty {
                 call_user_func(array($apiClass, $action));
             }
         }
-
         $this->display($this->action . '.tpl');
         exit();
     }
