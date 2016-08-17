@@ -16,7 +16,7 @@
 
 开源中国拓展Git地址:[http://git.oschina.net/dogstar/PhalApi-Library](http://git.oschina.net/dogstar/PhalApi-Library "开源中国Git地址")
 
-
+  
 ##1. 安装
 
 配置方式非常简单只需要把拓展下载下来放入Library文件内即可,然后就可以使用如下方法进行实例
