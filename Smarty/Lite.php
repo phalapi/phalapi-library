@@ -57,6 +57,7 @@ class Smarty_Lite extends Smarty {
             if ($apiClassName != "" && $action != "" && ($apiClassName != $this->apiClassName || $action != $this->action)) {
                 $Class = 'Api_' . ucfirst($apiClassName);
                 $apiClass = new $Class();
+                $apiClass->init();
                 $this->action = $action;
                 $this->apiClassName = $apiClassName;
 
