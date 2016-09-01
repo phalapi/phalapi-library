@@ -294,13 +294,14 @@ class Redis_Lite extends PhalApi_Cache_Redis{
         return $count;
     }
     /**
-     * 创建具有有效时间的计数器,回调当前计数
+     * 创建具有有效时间的计数器,回调当前计数,单位毫秒ms
      * @author Axios <axioscros@aliyun.com>
      */
     public function counter_time_create($key,$expire  = 1000,$dbname=0){
         $this->switchDB($dbname);
         $count = 1;
         $this->set_time($key,$count,$expire);
+        $this->redis->pSetEx($this->formatKey($key), $expire, $this->formatValue($count));
         return $count;
     }
     /**
@@ -312,7 +313,7 @@ class Redis_Lite extends PhalApi_Cache_Redis{
         if($this->get_exists($key)){
             $count = $this->get_time($key);
             $count++;
-            $expire = $this->get_time_ttl($key);
+            $expire = $this->redis->pttl($this->formatKey($key));
             $this->set_time($key,$count,$expire);
             return $count;
         }
