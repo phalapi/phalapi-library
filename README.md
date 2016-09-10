@@ -1,4 +1,4 @@
-##PhalApi框架扩展类库
+##PhalApi框架扩展类库，欢迎大家一起来参与维护！
 ### -- 致力于与开源项目一起提供企业级的解决方案！
 此部分类库为 [PhalAPi框架](http://git.oschina.net/dogstar/PhalApi) 下的扩展类库包，各个扩展包各自独立，可以根据需要自动下载安装。
   
