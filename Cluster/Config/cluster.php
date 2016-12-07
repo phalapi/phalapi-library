@@ -12,7 +12,7 @@ return array(
         //数据库通用属性,如果不通用可以去掉一些属性,在db_list分别配置
         'general'    => array(
             'user'     => 'root',                  //数据库用户名
-            'password' => 'woyouxinxi',                        //数据库密码
+            'password' => '',                        //数据库密码
             'port'     => '3306',                  //数据库端口
             'charset'  => 'UTF8',                  //数据库字符集
         ),
