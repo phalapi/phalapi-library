@@ -30,6 +30,11 @@ class PaymentProperty
     /** @var string 微信--支付类型为JSAPI时，此参数必传，用户在商户appid下的唯一标识。 */
     public static $openId    = 'openId';
     
+    /** @var string 微信--支付类型为JSAPI时，此参数必传，用户在子商户appid下的唯一标识。
+     * openid和sub_openid可以选传其中之一，如果选择传sub_openid,则必须传sub_appid。
+     * 下单前需要调用【网页授权获取用户信息】接口获取到用户的Openid。  */
+    public static $sub_openid    = 'sub_openId';
+    
     /** @var string 微信--取值如下：JSAPI，NATIVE，APP */
     public static $tradeType = 'tradeType';
     
