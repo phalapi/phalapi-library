@@ -25,6 +25,8 @@ class WxPayConfig
     public static $mchId = '';
     public static $key = '';
     public static $appSecret = '';
+    public static $sub_appId = '';
+    public static $sub_mch_id= '';
     
     //=======【证书路径设置】=====================================
     /**

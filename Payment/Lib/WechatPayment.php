@@ -29,6 +29,9 @@ class WechatPayment
         WxPayConfig::$notifyUrl     = trim($config['notifyUrl']);
         WxPayConfig::$sslCertPath   = $sslPath . trim($config['sslName']) . '_cert.pem';
         WxPayConfig::$sslKeyPath    = $sslPath . trim($config['sslName']) . '_key.pem';
+        
+        $config['sub_appid'] && WxPayConfig::$sub_appId = trim($config['sub_appid']);
+        $config['sub_mch_id'] && WxPayConfig::$sub_mch_id = trim($config['sub_mch_id']);
     }
     
     /**微信--生成订单
@@ -61,6 +64,8 @@ class WechatPayment
         !empty($orderInfo[PaymentProperty::$attach]) && $order->SetAttach($orderInfo[PaymentProperty::$attach]);
         !empty($orderInfo[PaymentProperty::$feeType]) && $order->SetFee_type($orderInfo[PaymentProperty::$feeType]);
         !empty($orderInfo[PaymentProperty::$tag]) && $order->SetGoods_tag($orderInfo[PaymentProperty::$tag]);
+        //服务商
+        !empty($orderInfo[PaymentProperty::$sub_openid]) && $order->SetSub_openid($orderInfo[PaymentProperty::$sub_openid]);
         return WxPayApi::unifiedOrder($order);
     }
     

@@ -24,6 +24,8 @@ return array(
         'appId'     => '',
         'appSecret' => '',
         'mchId'     => 0,
+        'sub_appid' => '',//服务商选填
+        'sub_mch_id'=> 0,//服务商必填
     ),
     'alipay' => array(
         //证书目录
