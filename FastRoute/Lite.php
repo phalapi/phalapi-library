@@ -111,6 +111,10 @@ class FastRoute_Lite {
 
                 // ... call $handler with $vars (交由PhalApi处理响应)
                 $vars['service'] = $handler;
+
+                // 加传更多POST/GET参数
+                $vars = array_merge($_REQUEST, $vars);
+
                 DI()->request = new PhalApi_Request($vars);
                 break;
         }
