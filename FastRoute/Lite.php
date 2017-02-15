@@ -88,7 +88,7 @@ class FastRoute_Lite {
 
         // Fetch method and URI from somewhere
         $httpMethod = $_SERVER['REQUEST_METHOD'];
-        $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+        $uri = urldecode(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH));
 
         $routeInfo = $dispatcher->dispatch($httpMethod, $uri);
         switch ($routeInfo[0]) {
@@ -113,7 +113,7 @@ class FastRoute_Lite {
                 $vars['service'] = $handler;
 
                 // 加传更多POST/GET参数
-                $vars = array_merge($_REQUEST, $vars);
+                $vars = array_merge(DI()->request->getAll(), $vars);
 
                 DI()->request = new PhalApi_Request($vars);
                 break;
