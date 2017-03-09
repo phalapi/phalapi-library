@@ -35,6 +35,9 @@ class PaymentProperty
      * 下单前需要调用【网页授权获取用户信息】接口获取到用户的Openid。  */
     public static $sub_openid    = 'sub_openId';
     
+    /** @var string 微信--商品id */
+    public static $productId = 'product_id';
+    
     /** @var string 微信--取值如下：JSAPI，NATIVE，APP */
     public static $tradeType = 'tradeType';
     

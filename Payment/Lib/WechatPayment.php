@@ -30,8 +30,8 @@ class WechatPayment
         WxPayConfig::$sslCertPath   = $sslPath . trim($config['sslName']) . '_cert.pem';
         WxPayConfig::$sslKeyPath    = $sslPath . trim($config['sslName']) . '_key.pem';
         
-        $config['sub_appid'] && WxPayConfig::$sub_appId = trim($config['sub_appid']);
-        $config['sub_mch_id'] && WxPayConfig::$sub_mch_id = trim($config['sub_mch_id']);
+        !empty($config['sub_appid']) && WxPayConfig::$sub_appId = trim($config['sub_appid']);
+        !empty($config['sub_mch_id']) && WxPayConfig::$sub_mch_id = trim($config['sub_mch_id']);
     }
     
     /**微信--生成订单
@@ -53,17 +53,18 @@ class WechatPayment
         $order->SetBody($orderInfo[PaymentProperty::$body]);
         $order->SetOut_trade_no($orderInfo[PaymentProperty::$orderId]);
         $order->SetTotal_fee( (int) $orderInfo[PaymentProperty::$total]);
+        $order->SetTrade_type($orderInfo[PaymentProperty::$tradeType]);
         //有效时间
         $order->SetTime_start(date("YmdHis"));
         $order->SetTime_expire(date("YmdHis", time() + $time));
         //非必填项
         !empty($orderInfo[PaymentProperty::$openId]) && $order->SetOpenid($orderInfo[PaymentProperty::$openId]);
-        !empty($orderInfo[PaymentProperty::$tradeType]) && $order->SetTrade_type($orderInfo[PaymentProperty::$tradeType]);
         !empty($orderInfo[PaymentProperty::$deviceInfo]) && $order->SetDevice_info($orderInfo[PaymentProperty::$deviceInfo]);
         !empty($orderInfo[PaymentProperty::$detail]) && $order->SetDetail($orderInfo[PaymentProperty::$detail]);
         !empty($orderInfo[PaymentProperty::$attach]) && $order->SetAttach($orderInfo[PaymentProperty::$attach]);
         !empty($orderInfo[PaymentProperty::$feeType]) && $order->SetFee_type($orderInfo[PaymentProperty::$feeType]);
         !empty($orderInfo[PaymentProperty::$tag]) && $order->SetGoods_tag($orderInfo[PaymentProperty::$tag]);
+        !empty($orderInfo[PaymentProperty::$productId ] ) && $order->SetProduct_id ($orderInfo[ PaymentProperty::$productId]);
         //服务商
         !empty($orderInfo[PaymentProperty::$sub_openid]) && $order->SetSub_openid($orderInfo[PaymentProperty::$sub_openid]);
         return WxPayApi::unifiedOrder($order);
