@@ -27,6 +27,8 @@ class Qiniu_Lite {
         if ($this->config === NULL) {
             $this->config = DI()->config->get('app.Qiniu');
         }
+
+        DI()->loader->addDirs('./Library/Qiniu/CDN');
     }
 
     /**

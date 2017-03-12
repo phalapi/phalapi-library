@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Class Api_Auth_Rule 规则接口服务类
+ * Auth扩展 － 规则接口服务类
  * @author: hms 2015-6-8
  */
 class Api_Auth_Rule extends PhalApi_Api

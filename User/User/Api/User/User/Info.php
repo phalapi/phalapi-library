@@ -1,4 +1,9 @@
 <?php
+/**
+ * User扩展－用户信息服务
+ * @author dogstar 20170312
+ */
+
 class Api_User_User_Info extends PhalApi_Api {
 
     public function getRules()

@@ -1,4 +1,8 @@
 <?php
+/**
+ * User扩展 － 登录服务
+ * @author dogstar 20170312
+ */
 
 class Api_User_User_Login extends PhalApi_Api {
 
