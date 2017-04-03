@@ -137,7 +137,7 @@ class UCloud_Lite {
     private function setFileName(){
         if(empty($this->file_name)){
             $tmp_name = sprintf('%010d',time() - 946656000)
-                            . sprintf('%03d', microtime() * 1000)
+                            . sprintf('%03d', microtime(true) * 1000)
                             . sprintf('%04d', mt_rand(0,9999));
         }else{
             $tmp_name = $this->file_name;
