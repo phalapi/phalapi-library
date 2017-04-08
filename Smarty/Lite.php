@@ -32,7 +32,7 @@ class Smarty_Lite extends Smarty {
         if (!empty($this->apiClassName)) {
             $this->p_type = $this->apiClassName;
         }
-        $dir = array(API_ROOT."/$this->p_dir/$this->p_type/");
+        $dir = array(API_ROOT."/Public/$this->p_dir/$this->p_type/");
         $this->setTemplateDir($dir);
     }
 
