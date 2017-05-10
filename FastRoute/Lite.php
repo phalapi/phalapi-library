@@ -114,6 +114,7 @@ class FastRoute_Lite {
 
                 // 加传更多POST/GET参数
                 $vars = array_merge(DI()->request->getAll(), $vars);
+                $_GET = array_merge($_GET, $vars);
 
                 DI()->request = new PhalApi_Request($vars);
                 break;
