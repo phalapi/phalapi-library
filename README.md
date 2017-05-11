@@ -57,7 +57,7 @@
   
  [更多请点这里查看使用文档](http://git.oschina.net/dogstar/PhalApi/wikis/%5B3.9%5D-%E6%89%A9%E5%B1%95%E7%B1%BB%E5%BA%93%EF%BC%9Aswoole%E6%94%AF%E6%8C%81%E4%B8%8B%E7%9A%84%E9%95%BF%E9%93%BE%E6%8E%A5%E5%92%8C%E5%BC%82%E6%AD%A5%E4%BB%BB%E5%8A%A1%E5%AE%9E%E7%8E%B0)
 
-###8、新型计划任务
+### 8、新型计划任务
 此扩展类型用于后台计划任务的调度，主要功能点有：
  + 1、提供了Redis/文件/数据库三种MQ队列
  + 2、提供了本地和远程两种调度方式
