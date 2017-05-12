@@ -12,7 +12,7 @@ return array(
          /**
           * 格式：array($method, $routePattern, $handler)
           *
-          * @param string/array $method 允许的HTTP请求方烤鸡，可以为：GET/POST/HEAD/DELETE 等
+          * @param string/array $method 允许的HTTP请求方法，可以为：GET/POST/HEAD/DELETE 等
           * @param string $routePattern 路由的正则表达式
           * @param string $handler 对应PhalApi中接口服务名称，即：?service=$handler
           */
