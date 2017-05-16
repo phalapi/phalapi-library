@@ -33,9 +33,11 @@ class CLI_Lite {
         $serviceOpt = new Option('s', 'service', Getopt::REQUIRED_ARGUMENT);
         $serviceOpt->setDescription('接口服务');
 
+        $helpOpt = new Option('h', 'help');
+        $helpOpt->setDescription('查看帮助信息');
         $getopt = new Getopt(array(
             $serviceOpt,
-            new Option(NULL, 'help'),
+            $helpOpt
         ));
 
         $service = NULL;
