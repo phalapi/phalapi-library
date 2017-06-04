@@ -25,6 +25,8 @@
 
 class Swoole_Lite {
 
+    protected $task_list;
+
     /**
      * 启动接口服务，支持长链接
      */
@@ -102,6 +104,7 @@ class Swoole_Lite {
 
         $serv->on('Receive', function($serv, $fd, $fromId, $data) {
             $taskId = $serv->task($data);
+            $this->task_list[$taskId] = $fd;
             DI()->logger->debug("asynctask($taskId) dispath in swoole", $data);
         });
 
@@ -137,7 +140,7 @@ class Swoole_Lite {
 
         $serv->on('Finish', function ($serv, $taskId, $data) {
             DI()->logger->debug("asynctask($taskId) finish in swoole", $data);
-            $serv->close($taskId);
+            $serv->close($this->task_list[$taskId]);
         });
 
         $serv->start();
