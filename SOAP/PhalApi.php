@@ -1,6 +1,6 @@
 <?php
 
-class SOAP_PhalAPi {
+class SOAP_PhalApi {
 
     protected $phalapi;
 
