@@ -139,6 +139,21 @@
 
 [更多请点这里查看使用文档](http://git.oschina.net/dogstar/PhalApi-Library/tree/master/SMS/?dir=1&filepath=SMS&oid=4d7320f5e9b7d1ae0f57b2f23dd328ceed55f159&sha=09ce6c0fdf45b71549e60e4a4c858f585104b168)
 
+## 19、PhalApi--Workman
+
+本扩展旨在让socket编程，像用PhalApi开发接口一样简单，让开发者只需专注于业务逻辑，创建相应的Server类并编写action方法即可。此外，Server层还可以和其它接口共用Domain层和Model层，实现功能上的复用。
+
+[更多请点这里查看使用文档](http://git.oschina.net/dogstar/PhalApi-Library/tree/master/Workman)
+
+## 20、PhalApi-RongYun融云扩展类库  
+
+基于融云官网上server-sdk的一个及时通讯的扩展类库。  
+
+## 21、PhalApi-PHPWord
+
+在接口开发中遇到需要生成Word文档的需求，发现一个PHPWord的第三方库能满足大部分需求，于是整合到了PhalApi框架中。
+
+[更多请点这里查看使用文档](http://git.oschina.net/dogstar/PhalApi-Library/tree/master/PHPWord)
 
 ## 扩展开发指南 - 针对开发者
 为了统一扩展类库的风格、便于用户更容易使用，这里建议：  
