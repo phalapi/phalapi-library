@@ -380,7 +380,7 @@ class Image_Driver_Gd {
         /* 设定水印位置 */
         switch ($locate) {
             /* 右下角水印 */
-            case this::IMAGE_WATER_SOUTHEAST:
+            case self::IMAGE_WATER_SOUTHEAST:
                 $x = $this->info['width'] - $info[0];
                 $y = $this->info['height'] - $info[1];
                 break;
